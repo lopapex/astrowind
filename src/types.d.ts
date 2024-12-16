@@ -1,53 +1,4 @@
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import type { HTMLAttributes, ImageMetadata } from 'astro/types';
-
-export interface Post {
-  /** A unique ID number that identifies a post. */
-  id: string;
-
-  /** A post’s unique slug – part of the post’s URL based on its name, i.e. a post called “My Sample Page” has a slug “my-sample-page”. */
-  slug: string;
-
-  /**  */
-  permalink: string;
-
-  /**  */
-  publishDate: Date;
-  /**  */
-  updateDate?: Date;
-
-  /**  */
-  title: string;
-  /** Optional summary of post content. */
-  excerpt?: string;
-  /**  */
-  image?: ImageMetadata | string;
-
-  /**  */
-  category?: Taxonomy;
-  /**  */
-  tags?: Taxonomy[];
-  /**  */
-  author?: string;
-
-  /**  */
-  metadata?: MetaData;
-
-  /**  */
-  draft?: boolean;
-
-  /**  */
-  Content?: AstroComponentFactory;
-  content?: string;
-
-  /**  */
-  readingTime?: number;
-}
-
-export interface Taxonomy {
-  slug: string;
-  title: string;
-}
+import type { HTMLAttributes } from 'astro/types';
 
 export interface MetaData {
   title?: string;
@@ -112,26 +63,6 @@ export interface Headline {
   classes?: Record<string, string>;
 }
 
-interface TeamMember {
-  name?: string;
-  job?: string;
-  image?: Image;
-  socials?: Array<Social>;
-  description?: string;
-  classes?: Record<string, string>;
-}
-
-interface Social {
-  icon?: string;
-  href?: string;
-}
-
-export interface Stat {
-  amount?: number | string;
-  title?: string;
-  icon?: string;
-}
-
 export interface Item {
   title?: string;
   description?: string;
@@ -139,18 +70,6 @@ export interface Item {
   classes?: Record<string, string>;
   callToAction?: CallToAction;
   image?: Image;
-}
-
-export interface Price {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  price?: number | string;
-  period?: string;
-  items?: Array<Item>;
-  callToAction?: CallToAction;
-  hasRibbon?: boolean;
-  ribbonTitle?: string;
 }
 
 export interface Testimonial {
@@ -196,14 +115,6 @@ export interface ItemGrid {
   classes?: Record<string, string>;
 }
 
-export interface Collapse {
-  iconUp?: string;
-  iconDown?: string;
-  items?: Array<Item>;
-  columns?: number;
-  classes?: Record<string, string>;
-}
-
 export interface Form {
   inputs?: Array<Input>;
   textarea?: Textarea;
@@ -217,28 +128,12 @@ export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' |
   content?: string;
   actions?: string | CallToAction[];
   image?: string | unknown;
-}
-
-export interface Team extends Omit<Headline, 'classes'>, Widget {
-  team?: Array<TeamMember>;
-}
-
-export interface Stats extends Omit<Headline, 'classes'>, Widget {
-  stats?: Array<Stat>;
-}
-
-export interface Pricing extends Omit<Headline, 'classes'>, Widget {
-  prices?: Array<Price>;
+  class?: string;
 }
 
 export interface Testimonials extends Omit<Headline, 'classes'>, Widget {
   testimonials?: Array<Testimonial>;
   callToAction?: CallToAction;
-}
-
-export interface Brands extends Omit<Headline, 'classes'>, Widget {
-  icons?: Array<string>;
-  images?: Array<Image>;
 }
 
 export interface Features extends Omit<Headline, 'classes'>, Widget {
@@ -252,13 +147,6 @@ export interface Features extends Omit<Headline, 'classes'>, Widget {
   isReversed?: boolean;
   isBeforeContent?: boolean;
   isAfterContent?: boolean;
-}
-
-export interface Faqs extends Omit<Headline, 'classes'>, Widget {
-  iconUp?: string;
-  iconDown?: string;
-  items?: Array<Item>;
-  columns?: number;
 }
 
 export interface Steps extends Omit<Headline, 'classes'>, Widget {
