@@ -8,7 +8,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import { getPermalink } from '~/utils/permalinks';
-import bgVideo from "~/assets/videos/background.mp4"
+import bgVideo from '~/assets/videos/background.mp4';
 
 const metadata = {
   title: 'Personal Homepage Demo',
@@ -24,7 +24,7 @@ const metadata = {
   </video>
 
   <Hero
-    class='h-[calc(100vh-96px)]'
+    class="h-[calc(100vh-96px)]"
     title="Sarah Johnson"
     tagline="Personal Web Demo"
     actions={[{ variant: 'primary', text: 'Hire me', href: getPermalink('/contact#form') }]}
