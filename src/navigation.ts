@@ -2,17 +2,15 @@ export const headerData = {
   links: [
     { text: 'Home', href: '#home' },
     { text: 'About', href: '#about' },
-    { text: 'Resume', href: '#resume' },
-    { text: 'Porfolio', href: '#porfolio' },
+    { text: 'Team', href: '#team' },
+    { text: 'Contact', href: '#contact' },
   ],
 };
 
 export const footerData = {
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/3c.creates/' },
+    { ariaLabel: 'Linkedin', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/mat%C4%9Bj-novotn%C3%BD-web-dev/' },
+    { ariaLabel: 'Email', icon: 'tabler:mail', href: 'mailto:matej.novotnny@gmail.com' },
   ],
-  footNote: `@copyright`,
 };
