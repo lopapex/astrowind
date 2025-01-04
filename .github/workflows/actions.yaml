@@ -24,12 +24,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
-      - run: rm -rf node_modules    # Clear node_modules to prevent cache issues
-      - run: npm ci                # Clean install of dependencies
-      - name: List all files       # Debugging step to list files in the repo
-        run: ls -R
-      - run: npm run build         # Run build command
-      # - run: npm test             # Optional: Uncomment to run tests
+      - run: npm ci
+      - run: npm run build
+      # - run: npm test
 
   check:
     runs-on: ubuntu-latest
@@ -40,8 +37,5 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: rm -rf node_modules    # Clear node_modules to prevent cache issues
-      - run: npm ci                # Clean install of dependencies
-      - name: List all files       # Debugging step to list files in the repo
-        run: ls -R
-      - run: npm run check         # Run check command
+      - run: npm ci
+      - run: npm run check

@@ -26,7 +26,7 @@ export default defineConfig({
   output: 'static',
 
   integrations: [
-    react(),
+    react(),  // Ensure React integration is correct
     tailwind({
       applyBaseStyles: false,
     }),
@@ -86,6 +86,14 @@ export default defineConfig({
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
+      },
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-compiler-runtime'],  // Ensure these are properly optimized by Vite
+    },
+    server: {
+      watch: {
+        usePolling: true,  // Helps in environments with file system issues (like CI/CD)
       },
     },
   },
