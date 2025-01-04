@@ -89,7 +89,7 @@ export default defineConfig({
       },
     },
     optimizeDeps: {
-      include: ['react', 'react-dom', 'react-compiler-runtime'],  // Ensure these are properly optimized by Vite
+      include: ['react', 'react-dom'],  // Ensure these are properly optimized by Vite
     },
     server: {
       watch: {
