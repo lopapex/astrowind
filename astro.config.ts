@@ -26,7 +26,7 @@ export default defineConfig({
   output: 'static',
 
   integrations: [
-    react(),  // Ensure React integration is correct
+    react(), // Ensure React integration is correct
     tailwind({
       applyBaseStyles: false,
     }),
@@ -89,11 +89,11 @@ export default defineConfig({
       },
     },
     optimizeDeps: {
-      include: ['react', 'react-dom'],  // Ensure these are properly optimized by Vite
+      include: ['react', 'react-dom'], // Ensure these are properly optimized by Vite
     },
     server: {
       watch: {
-        usePolling: true,  // Helps in environments with file system issues (like CI/CD)
+        usePolling: true, // Helps in environments with file system issues (like CI/CD)
       },
     },
   },

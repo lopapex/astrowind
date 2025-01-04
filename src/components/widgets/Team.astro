@@ -8,11 +8,11 @@ export const prerender = true;
 
 const team = await getCollection('team');
 
-const formattedTeam = team.map(member => ({
+const formattedTeam = team.map((member) => ({
   ...member.data,
   id: member.id,
-  description: member.rendered?.html || member.body
-}))
+  description: member.rendered?.html || member.body,
+}));
 
 interface Props extends Widget {
   title?: string;
@@ -27,6 +27,6 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div class="max-w-3xl mx-auto text-center p-6 flex justify-center items-center flex-col">
-    <TeamContainer client:visible team={formattedTeam}  />
+    <TeamContainer client:idle team={formattedTeam} />
   </div>
 </WidgetWrapper>
