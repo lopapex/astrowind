@@ -10,6 +10,7 @@ import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
+import react from '@astrojs/react';
 
 import astrowind from './vendor/integration';
 
@@ -25,6 +26,7 @@ export default defineConfig({
   output: 'static',
 
   integrations: [
+    react(), // Ensure React integration is correct
     tailwind({
       applyBaseStyles: false,
     }),
@@ -84,6 +86,14 @@ export default defineConfig({
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
+      },
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom'], // Ensure these are properly optimized by Vite
+    },
+    server: {
+      watch: {
+        usePolling: true, // Helps in environments with file system issues (like CI/CD)
       },
     },
   },
