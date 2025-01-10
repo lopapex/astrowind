@@ -1,0 +1,27 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { CallToAction, Widget } from '~/types';
+
+interface Props extends Widget {
+  title?: string;
+  content?: string;
+  tagline?: string;
+  callToAction?: CallToAction;
+  actions?: string | CallToAction[];
+}
+
+const {
+  content = await Astro.slots.render('content'),
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="mx-auto text-center p-6 flex justify-center items-center flex-col">
+    <p class="p-5 text-3xl text-muted dark:text-slate-400 uppercase" set:html={content} />
+  </div>
+</WidgetWrapper>

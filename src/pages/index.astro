@@ -3,8 +3,9 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import bgVideo from '~/assets/videos/background.mp4';
-import About from '~/components/widgets/About.astro';
+import Aim from '~/components/widgets/Aim.astro';
 import Team from '~/components/widgets/Team.astro';
+import Photo from '~/components/widgets/Photo.astro';
 
 const metadata = {
   title: 'Personal Homepage Demo',
@@ -17,13 +18,24 @@ const metadata = {
     Your browser does not support the video tag.
   </video>
 
-  <About id="about" subtitle="Odstavec AIM na střed." />
+  <Aim
+    id="aim"
+    content="A collective of professional rebels – choreographers, designers, dancers, directors, managers, technicians — who craft experiences that transcend conventions."
+  />
+
+  <Photo id="logo" />
+
+  <Aim
+    id="aim2"
+    content="Let's shatter barriers, connect the unconnected, and breathe new life into the arts. We don’t really follow trends or play by outdated rules; we forge new path as much as it is possible. Driven by bold ideas and a passion for independent culture together we’re building a platform for change, where art, ideas, and values thrive without limits. From choreography to show, from stageplan to concert. Let's meet and see."
+  />
 
   <Team id="team" />
 
   <CallToAction
     id="contact"
-    title="Let's create together"
+    title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Fusce suscipit libero eget elit. Aenean placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu."
+    subtitle="Nullam lectus justo, vulputate eget mollis sed, tempor sed magna."
     actions={[
       {
         variant: 'primary',
