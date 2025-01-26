@@ -11,6 +11,7 @@ import icon from 'astro-icon';
 import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
 import react from '@astrojs/react';
+import astroI18next from 'astro-i18next';
 
 import astrowind from './vendor/integration';
 
@@ -24,9 +25,9 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
-
   integrations: [
-    react(), // Ensure React integration is correct
+    react(),
+    astroI18next(),
     tailwind({
       applyBaseStyles: false,
     }),

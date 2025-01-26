@@ -8,6 +8,7 @@ import Button from '~/components/ui/Button.astro';
 import { getHomePermalink } from '~/utils/permalinks';
 import { trimSlash, getAsset } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
+import i18next, { t } from 'i18next';
 
 interface Link {
   text?: string;
@@ -32,9 +33,11 @@ export interface Props {
   position?: string;
 }
 
+const { lang } = Astro.params;
+await i18next.changeLanguage(lang);
+
 const {
   id = 'header',
-  links = [],
   actions = [],
   isSticky = false,
   isDark = false,
@@ -43,6 +46,15 @@ const {
   showRssFeed = false,
   position = 'right',
 } = Astro.props;
+
+const links = [
+  { text: t('site.navigation.home'), href: '#home' },
+  { text: t('site.navigation.aim'), href: '#aim' },
+  { text: t('site.navigation.photo'), href: '#logo' },
+  { text: t('site.navigation.aim2'), href: '#aim2' },
+  { text: t('site.navigation.team'), href: '#team' },
+  { text: t('site.navigation.contact'), href: '#contact' },
+];
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
@@ -86,7 +98,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
       >
         {
-          links.map(({ text, href, links }) => (
+          links.map(({ text, href }) => (
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>

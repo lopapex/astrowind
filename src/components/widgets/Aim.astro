@@ -4,7 +4,7 @@ import type { CallToAction, Widget } from '~/types';
 
 interface Props extends Widget {
   title?: string;
-  content?: string;
+  content?: string | null;
   tagline?: string;
   callToAction?: CallToAction;
   actions?: string | CallToAction[];

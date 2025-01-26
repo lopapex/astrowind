@@ -1,0 +1,22 @@
+{
+  "site": {
+    "title": "Demo osobní stránky",
+    "navigation": {
+      "home": "domů",
+      "aim": "cíl",
+      "photo": "fotografie",
+      "aim2": "cíl2",
+      "team": "tým",
+      "contact": "kontakt"
+    }
+  },
+  "content": {
+    "aim1": "Kolektiv profesionálních rebelů – choreografů, designérů, tanečníků, režisérů, manažerů, techniků – kteří vytvářejí zážitky, které přesahují konvence.",
+    "aim2": "Rozbijme bariéry, spojme to, co je nepropojené, a vdechněme nový život do umění. Skutečně nenásledujeme trendy ani nehraje podle zastaralých pravidel; razíme nové cesty, jak jen to je možné. Poháněni odvážnými nápady a vášní pro nezávislou kulturu společně budujeme platformu pro změnu, kde umění, nápady a hodnoty prosperují bez omezení. Od choreografie po show, od plánu scény po koncert. Pojďme se setkat a uvidíme.",
+    "contact": {
+      "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Fusce suscipit libero eget elit. Aenean placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu.",
+      "description": "Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.",
+      "button": "Kontaktujte nás"
+    }
+  }
+}

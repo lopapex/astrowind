@@ -7,12 +7,18 @@ import TeamContainer from '../team/TeamContainer';
 export const prerender = true;
 
 const team = await getCollection('team');
+const { lang } = Astro.params;
 
-const formattedTeam = team.map((member) => ({
-  ...member.data,
-  id: member.id,
-  description: member.rendered?.html || member.body,
-}));
+const formattedTeam = team
+  .filter((member) => {
+    const [memberLang] = member.id.split('/');
+    return memberLang === lang;
+  })
+  .map((member) => ({
+    ...member.data,
+    id: member.id,
+    description: member.rendered?.html || member.body,
+  }));
 
 interface Props extends Widget {
   title?: string;
