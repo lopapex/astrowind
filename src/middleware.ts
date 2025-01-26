@@ -12,7 +12,7 @@ export const onRequest: MiddlewareHandler = async ({ request, redirect }, next) 
   }
 
   if (rest.length > 0) {
-    return redirect(`/${lang}`, 302);
+    return redirect(`/${i18next.language}`, 302);
   }
 
   return next();
