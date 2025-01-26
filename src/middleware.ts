@@ -6,13 +6,13 @@ export const onRequest: MiddlewareHandler = async ({ request, redirect }, next) 
 
   const [, lang, ...rest] = url.pathname.split('/');
 
+  if (url.pathname === '/' || rest.length > 0) {
+    return redirect(`/${i18next.language}`, 302);
+  }
+
   if (!lang || !i18next.languages.includes(lang)) {
     const newPath = url.pathname.replace(/\/$/, '');
     return redirect(`/${i18next.language}${newPath}`, 302);
-  }
-
-  if (rest.length > 0) {
-    return redirect(`/${lang}`, 302);
   }
 
   return next();
