@@ -1,0 +1,51 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Aim from '~/components/widgets/Aim.astro';
+import Photo from '~/components/widgets/Photo.astro';
+import Team from '~/components/widgets/Team.astro';
+import i18next, { t } from 'i18next';
+import bgVideo from '~/assets/videos/background.mp4';
+
+export function getStaticPaths() {
+  return i18next.languages.map((item) => ({
+    params: { lang: item },
+  }));
+}
+
+const { lang } = Astro.params;
+await i18next.changeLanguage(lang);
+
+const metadata = {
+  title: t('site.title'),
+};
+---
+
+<Layout metadata={metadata}>
+  <video autoplay loop muted playsinline class="w-full h-[calc(100vh-75px)] top-[75px] bg-black">
+    <source src={bgVideo} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <Aim id="aim" content={t('content.aim1')} />
+
+  <Photo id="logo" />
+
+  <Aim id="aim2" content={t('content.aim2')} />
+
+  <Team id="team" />
+
+  <CallToAction
+    id="contact"
+    title={t('content.contact.title')}
+    subtitle={t('content.contact.description')}
+    actions={[
+      {
+        variant: 'primary',
+        text: t('content.contact.button') || '',
+        href: 'mailto:matej.novotnny@gmail.com',
+      },
+    ]}
+  />
+</Layout>

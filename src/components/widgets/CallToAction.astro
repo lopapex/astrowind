@@ -5,8 +5,8 @@ import Headline from '~/components/ui/Headline.astro';
 import Button from '~/components/ui/Button.astro';
 
 interface Props extends Widget {
-  title?: string;
-  subtitle?: string;
+  title?: string | null;
+  subtitle?: string | null;
   tagline?: string;
   callToAction?: CallToAction;
   actions?: string | CallToAction[];
@@ -28,8 +28,8 @@ const {
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div class="max-w-3xl mx-auto text-center p-6 rounded-md shadow-xl dark:shadow-none">
     <Headline
-      title={title}
-      subtitle={subtitle}
+      title={title || ''}
+      subtitle={subtitle || ''}
       tagline={tagline}
       classes={{
         container: 'mb-0 md:mb-0',
