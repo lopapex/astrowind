@@ -1,6 +1,7 @@
 import slugify from 'limax';
 
 import { SITE } from 'astrowind:config';
+import i18next from 'i18next';
 
 import { trim } from '~/utils/utils';
 
@@ -61,7 +62,7 @@ export const getPermalink = (slug = '', type = 'page'): string => {
 };
 
 /** */
-export const getHomePermalink = (): string => getPermalink('/');
+export const getHomePermalink = (): string => getPermalink(`/${i18next.language}`);
 
 /** */
 export const getAsset = (path: string): string =>
