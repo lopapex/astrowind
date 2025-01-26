@@ -4,10 +4,6 @@ site:
   base: '/'
   trailingSlash: false
 
-i18n:
-  language: en
-  textDirection: ltr
-
 analytics:
   vendors:
     googleAnalytics:
