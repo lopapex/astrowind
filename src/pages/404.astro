@@ -1,15 +1,5 @@
 ---
-import i18next from 'i18next';
-
-const url = new URL(Astro.request.url);
-const [, lang, ...rest] = url.pathname.split('/');
-
-if (url.pathname === '/' || rest.length > 0) {
-  Astro.redirect(`/${i18next.language}`);
-} else if (!lang || !i18next.languages.includes(lang)) {
-  const newPath = url.pathname.replace(/\/$/, '');
-  Astro.redirect(`/${i18next.language}${newPath}`);
-}
+Astro.redirect(`/en`);
 ---
 
 <!doctype html>
