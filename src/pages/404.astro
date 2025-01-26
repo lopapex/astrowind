@@ -1,0 +1,26 @@
+---
+import i18next from 'i18next';
+
+const url = new URL(Astro.request.url);
+const [, lang, ...rest] = url.pathname.split('/');
+
+if (url.pathname === '/' || rest.length > 0) {
+  Astro.redirect(`/${i18next.language}`);
+} else if (!lang || !i18next.languages.includes(lang)) {
+  const newPath = url.pathname.replace(/\/$/, '');
+  Astro.redirect(`/${i18next.language}${newPath}`);
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Not Found</title>
+</head>
+<body>
+  <h1>Page Not Found</h1>
+  <p>The page you're looking for doesn't exist.</p>
+</body>
+</html>
