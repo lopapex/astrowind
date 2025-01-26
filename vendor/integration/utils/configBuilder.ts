@@ -118,17 +118,6 @@ const getMetadata = (config: Config) => {
   return merge({}, _default, config?.metadata ?? {}) as MetaDataConfig;
 };
 
-const getI18N = (config: Config) => {
-  const _default = {
-    language: 'en',
-    textDirection: 'ltr',
-  };
-
-  const value = merge({}, _default, config?.i18n ?? {});
-
-  return value as I18NConfig;
-};
-
 const getAppBlog = (config: Config) => {
   const _default = {
     isEnabled: false,
@@ -195,7 +184,6 @@ const getAnalytics = (config: Config) => {
 
 export default (config: Config) => ({
   SITE: getSite(config),
-  I18N: getI18N(config),
   METADATA: getMetadata(config),
   APP_BLOG: getAppBlog(config),
   UI: getUI(config),
