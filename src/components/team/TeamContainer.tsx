@@ -17,7 +17,7 @@ type Team = {
 
 const TeamContainer = ({ team, skillsLabel, rolesLabel }: Team) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {team.map((member) => (
         <motion.div
           className="relative flex md:flex-col border md:border-none md:justify-start"
@@ -28,7 +28,7 @@ const TeamContainer = ({ team, skillsLabel, rolesLabel }: Team) => {
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="w-1/2 md:w-full min-h-[390px] flex items-center justify-center overflow-hidden">
+          <div className="w-1/2 md:w-full md:min-h-[630px] flex items-center justify-center overflow-hidden">
             <motion.img
               src={member.image}
               alt={member.name}
@@ -42,7 +42,7 @@ const TeamContainer = ({ team, skillsLabel, rolesLabel }: Team) => {
           </div>
 
           <div className="text-left w-1/2 md:mt-[-16px] md:w-full p-5 md:p-0 md:text-center md:text-white z-10">
-            <div className="whitespace-nowrap w-auto inline-block md:bg-gray-500 md:px-3 md:py-1 rounded-full text-sm font-semibold uppercase">
+            <div className="w-auto inline-block md:bg-gray-500 md:px-3 md:py-1 rounded-full text-sm font-semibold uppercase">
               {member.name}
             </div>
             <div className="text-left text-xs border-b">
