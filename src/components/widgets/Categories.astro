@@ -1,0 +1,23 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { CallToAction, Widget } from '~/types';
+import { t } from 'i18next';
+
+interface Props extends Widget {
+  tagline?: string;
+  callToAction?: CallToAction;
+  actions?: string | CallToAction[];
+}
+
+const categories = t('content.categories')
+  .split(',')
+  .map((item) => item.trim());
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-items-center">
+    {categories.map((category) => <div class="text-center text-lg font-medium uppercase">{category}</div>)}
+  </div>
+</WidgetWrapper>

@@ -11,8 +11,27 @@
     }
   },
   "content": {
-    "aim1": "Kolektiv profesionálních rebelů – choreografů, designérů, tanečníků, režisérů, manažerů, techniků – kteří vytvářejí zážitky, které přesahují konvence.",
-    "aim2": "Rozbijme bariéry, spojme to, co je nepropojené, a vdechněme nový život do umění. Skutečně nenásledujeme trendy ani nehraje podle zastaralých pravidel; razíme nové cesty, jak jen to je možné. Poháněni odvážnými nápady a vášní pro nezávislou kulturu společně budujeme platformu pro změnu, kde umění, nápady a hodnoty prosperují bez omezení. Od choreografie po show, od plánu scény po koncert. Pojďme se setkat a uvidíme.",
+    "title": "Creative. Culture. Community.",
+    "content": "We’re a collective of professional rebels – CHOREOGRAPHERS, DESIGNERS, DANCERS, DIRECTORS, MANAGERS, TECHNICIANS –  who craft cosmic artistic experiences.",
+    "categories": "CONCEPT CREATION, ART DIRECTING, CHOREOGRAPHIES, EVENTS, CONCERTS,PROMO/MUSIC VIDEOS",
+    "gists": {
+      "gist1": {
+        "title": "Creative = the gist",
+        "content": "A term, perhaps, of dubious originality, but the act is like no other. The flow of bold ideas that lead us to that captivating pulse of novelty and cool experience."
+      },
+      "gist2": {
+        "title": "Culture = the love",
+        "content": "Independent culture opens the space for change and a deeper sense of the world and society around. And we f*cking love it."
+      },
+      "gist3": {
+        "title": "Community = the form",
+        "content": "Our basic instinct is to be together. Wake up the potential and spark the talent among each other. Community gives space for creating magic across disciplines."
+      }
+    },
+    "team": {
+      "skills": "Skills",
+      "roles": "Roles"
+    },
     "contact": {
       "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Fusce suscipit libero eget elit. Aenean placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu.",
       "description": "Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.",

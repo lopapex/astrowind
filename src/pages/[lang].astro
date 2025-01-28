@@ -3,10 +3,11 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Aim from '~/components/widgets/Aim.astro';
-import Photo from '~/components/widgets/Photo.astro';
 import Team from '~/components/widgets/Team.astro';
 import i18next, { t } from 'i18next';
 import bgVideo from '~/assets/videos/background.mp4';
+import Categories from '~/components/widgets/Categories.astro';
+import Gist from '~/components/widgets/Gist.astro';
 
 export function getStaticPaths() {
   return i18next.languages.map((item) => ({
@@ -28,11 +29,13 @@ const metadata = {
     Your browser does not support the video tag.
   </video>
 
-  <Aim id="aim" content={t('content.aim1')} />
+  <Aim id="aim" title={t('content.title')} content={t('content.content')} />
 
-  <Photo id="logo" />
+  <Categories />
 
-  <Aim id="aim2" content={t('content.aim2')} />
+  <Gist id="aim" title={t('content.gists.gist1.title')} content={t('content.gists.gist1.content')} />
+  <Gist id="aim" title={t('content.gists.gist2.title')} content={t('content.gists.gist2.content')} />
+  <Gist id="aim" title={t('content.gists.gist3.title')} content={t('content.gists.gist3.content')} />
 
   <Team id="team" />
 

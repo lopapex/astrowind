@@ -1,157 +1,69 @@
-import { useState, useRef, useEffect } from 'react';
-import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
-import cn from 'classnames';
+import { motion } from 'framer-motion';
 
 type TeamMember = {
   id: string;
   name: string;
-  role: string;
+  roles: string[];
+  skills: string[];
   image: string;
   description?: string;
 };
 
 type Team = {
   team: TeamMember[];
+  skillsLabel: string;
+  rolesLabel: string;
 };
 
-const TeamContainer = ({ team }: Team) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [isScrollable, setIsScrollable] = useState(false);
-  const [selected, setSelected] = useState<string>('');
-
-  useEffect(() => {
-    if (containerRef.current) {
-      const isOverflowing = containerRef.current.scrollWidth > containerRef.current.clientWidth;
-      setIsScrollable(isOverflowing);
-    }
-  }, [team]);
-
-  const scrollLeft = () => {
-    if (containerRef.current) {
-      const newPosition = Math.max(0, scrollPosition - 330);
-      containerRef.current.scrollTo({
-        left: newPosition,
-        behavior: 'smooth',
-      });
-      setScrollPosition(newPosition);
-    }
-  };
-
-  const scrollRight = () => {
-    if (containerRef.current) {
-      const maxScroll = containerRef.current.scrollWidth - containerRef.current.clientWidth;
-      const newPosition = Math.min(maxScroll, scrollPosition + 330);
-      containerRef.current.scrollTo({
-        left: newPosition,
-        behavior: 'smooth',
-      });
-      setScrollPosition(newPosition);
-    }
-  };
-
-  const handleCardClick = (id: string) => {
-    setSelected((prev) => {
-      if (prev === id) {
-        return '';
-      }
-      return id;
-    });
-
-    setTimeout(() => {
-      if (containerRef.current) {
-        const selectedElement = containerRef.current.querySelector(`#${id}`);
-
-        if (selectedElement) {
-          const containerRect = containerRef.current.getBoundingClientRect();
-          const elementRect = selectedElement.getBoundingClientRect();
-
-          const scrollPosition = elementRect.left - containerRect.left + containerRef.current.scrollLeft;
-          const maxScroll = containerRef.current.scrollWidth - containerRef.current.clientWidth;
-          const newScrollPosition = Math.min(scrollPosition, maxScroll);
-
-          containerRef.current.scrollTo({
-            left: newScrollPosition,
-            behavior: 'smooth',
-          });
-        }
-      }
-    }, 100);
-  };
-
+const TeamContainer = ({ team, skillsLabel, rolesLabel }: Team) => {
   return (
-    <div className="relative w-full">
-      {isScrollable && (
-        <button
-          onClick={scrollLeft}
-          className="absolute left-1 top-1/2 transform -translate-y-1/2 bg-gray-800 opacity-85 text-white p-2 rounded-full shadow-lg z-10"
-          style={{ visibility: scrollPosition > 0 ? 'visible' : 'hidden' }}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+      {team.map((member) => (
+        <motion.div
+          className="relative flex md:flex-col border md:border-none md:justify-start"
+          key={member.id}
+          whileHover="animate"
+          variants={{
+            animate: { scale: 0.95 },
+          }}
+          transition={{ duration: 0.3 }}
         >
-          <IconArrowLeft className="w-5 h-5" />
-        </button>
-      )}
-
-      <div
-        className="flex overflow-x-auto space-x-4 scroll-smooth"
-        ref={containerRef}
-        onScroll={() => {
-          if (containerRef.current) {
-            setScrollPosition(containerRef.current.scrollLeft);
-          }
-        }}
-      >
-        {team.map((member) => (
-          <div
-            id={member.id}
-            className={cn(
-              'flex-shrink-0 shadow-md bg-primary rounded-lg p-4 text-center hover:cursor-pointer max-h-[600px] overflow-y-auto',
-              {
-                'w-60': selected !== member.id,
-                'w-full [&>*]:text-left transition-all duration-100': selected === member.id,
-              }
-            )}
-            key={member.id}
-            onClick={() => handleCardClick(member.id)}
-          >
-            <img
+          <div className="w-1/2 md:w-full min-h-[390px] flex items-center justify-center overflow-hidden">
+            <motion.img
               src={member.image}
               alt={member.name}
-              className={cn('object-cover rounded-md mb-4', {
-                'w-full h-40': selected !== member.id,
-                'md:w-40 md:h-40 md:float-left md:mr-4 w-full h-40': selected === member.id,
-              })}
+              className="my-auto max-h-full max-w-full"
+              variants={{
+                initial: { scale: 1 },
+                animate: { scale: 0.9, translateY: '-7.5%' },
+              }}
+              transition={{ duration: 0.3 }}
             />
+          </div>
 
-            <h3 className="text-lg font-bold text-white">{member.name}</h3>
-            <p className="text-sm text-gray-200">{member.role}</p>
-
+          <div className="text-left w-1/2 md:mt-[-16px] md:w-full p-5 md:p-0 md:text-center md:text-white z-10">
+            <div className="whitespace-nowrap w-auto inline-block md:bg-gray-500 md:px-3 md:py-1 rounded-full text-sm font-semibold uppercase">
+              {member.name}
+            </div>
+            <div className="text-left text-xs border-b">
+              <div className="mt-2 font-medium uppercase">{rolesLabel}:</div>
+              <div className="text-gray-300 md:h-[65px] md:line-clamp-3">{member.roles.join(', ')}</div>
+            </div>
+            <div className="text-left text-xs border-b">
+              <div className="mt-2 font-medium uppercase">{skillsLabel}:</div>
+              <div className="text-gray-300 md:h-[65px] md:line-clamp-3">{member.skills.join(', ')}</div>
+            </div>
             {member.description && (
-              <div
-                className={cn('prose prose-sm text-gray-300 mt-2 !max-w-full', {
-                  'line-clamp-5': selected !== member.id,
-                })}
-                dangerouslySetInnerHTML={{ __html: member.description }}
-              />
+              <div className="text-left text-xs  mt-2">
+                <div
+                  className="prose prose-sm text-gray-300"
+                  dangerouslySetInnerHTML={{ __html: member.description }}
+                />
+              </div>
             )}
           </div>
-        ))}
-      </div>
-
-      {isScrollable && (
-        <button
-          onClick={scrollRight}
-          className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-gray-800 opacity-85 text-white p-2 rounded-full shadow-lg z-10"
-          style={{
-            visibility:
-              containerRef.current &&
-              containerRef.current.scrollWidth - containerRef.current.clientWidth > scrollPosition
-                ? 'visible'
-                : 'hidden',
-          }}
-        >
-          <IconArrowRight className="w-5 h-5" />
-        </button>
-      )}
+        </motion.div>
+      ))}
     </div>
   );
 };

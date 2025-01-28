@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Personal Homepage Demo",
+    "title": "Creative. Culture. Community",
     "navigation": {
       "home": "home",
       "aim": "aim",
@@ -11,8 +11,27 @@
     }
   },
   "content": {
-    "aim1": "A collective of professional rebels – choreographers, designers, dancers, directors, managers, technicians — who craft experiences that transcend conventions.",
-    "aim2": "Let's shatter barriers, connect the unconnected, and breathe new life into the arts. We don’t really follow trends or play by outdated rules; we forge new path as much as it is possible. Driven by bold ideas and a passion for independent culture together we’re building a platform for change, where art, ideas, and values thrive without limits. From choreography to show, from stageplan to concert. Let's meet and see.",
+    "title": "Creative. Culture. Community.",
+    "content": "We’re a collective of professional rebels – CHOREOGRAPHERS, DESIGNERS, DANCERS, DIRECTORS, MANAGERS, TECHNICIANS –  who craft cosmic artistic experiences.",
+    "categories": "CONCEPT CREATION, ART DIRECTING, CHOREOGRAPHIES, EVENTS, CONCERTS,PROMO/MUSIC VIDEOS",
+    "gists": {
+      "gist1": {
+        "title": "Creative = the gist",
+        "content": "A term, perhaps, of dubious originality, but the act is like no other. The flow of bold ideas that lead us to that captivating pulse of novelty and cool experience."
+      },
+      "gist2": {
+        "title": "Culture = the love",
+        "content": "Independent culture opens the space for change and a deeper sense of the world and society around. And we f*cking love it."
+      },
+      "gist3": {
+        "title": "Community = the form",
+        "content": "Our basic instinct is to be together. Wake up the potential and spark the talent among each other. Community gives space for creating magic across disciplines."
+      }
+    },
+    "team": {
+      "skills": "Skills",
+      "roles": "Roles"
+    },
     "contact": {
       "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Fusce suscipit libero eget elit. Aenean placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu.",
       "description": "Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.",
