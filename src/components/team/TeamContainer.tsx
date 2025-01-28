@@ -54,7 +54,7 @@ const TeamContainer = ({ team, skillsLabel, rolesLabel }: Team) => {
               <div className="text-gray-300 md:h-[65px] md:line-clamp-3">{member.skills.join(', ')}</div>
             </div>
             {member.description && (
-              <div className="text-left text-xs  mt-2">
+              <div className="text-left text-xs mt-2">
                 <div
                   className="prose prose-sm text-gray-300"
                   dangerouslySetInnerHTML={{ __html: member.description }}

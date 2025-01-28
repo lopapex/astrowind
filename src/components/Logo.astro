@@ -1,9 +1,7 @@
 ---
-import { SITE } from 'astrowind:config';
+import { Image } from 'astro:assets';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white uppercase"
->
-  {SITE?.name}
+<span class="flex items-center">
+  <Image src={'/images/logo.png'} alt="Home" width="40" height="40" />
 </span>
