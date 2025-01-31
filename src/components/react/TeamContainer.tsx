@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 
 type TeamMember = {
   id: string;
+  nickname: string,
   name: string;
   roles: string[];
   skills: string[];
@@ -43,7 +44,10 @@ const TeamContainer = ({ team, skillsLabel, rolesLabel }: Team) => {
 
           <div className="text-left w-1/2 md:mt-[-16px] md:w-full p-5 md:p-0 md:text-center md:text-white z-10">
             <div className="w-auto inline-block md:bg-gray-500 md:px-3 md:py-1 rounded-full text-sm font-semibold uppercase">
-              {member.name}
+              {member.nickname}
+            </div>
+            <div className="text-left text-xs border-b pb-2">
+              <div className="mt-2 font-medium uppercase">{member.name}</div>
             </div>
             <div className="text-left text-xs border-b">
               <div className="mt-2 font-medium uppercase">{rolesLabel}:</div>

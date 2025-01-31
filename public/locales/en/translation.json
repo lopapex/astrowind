@@ -2,10 +2,8 @@
   "site": {
     "title": "Creative. Culture. Community",
     "navigation": {
-      "home": "home",
-      "aim": "aim",
-      "photo": "photo",
-      "aim2": "aim2",
+      "home": "3c",
+      "about": "about",
       "team": "team",
       "contact": "contact"
     }
@@ -13,7 +11,8 @@
   "content": {
     "title": "Creative. Culture. Community.",
     "content": "We’re a collective of professional rebels – CHOREOGRAPHERS, DESIGNERS, DANCERS, DIRECTORS, MANAGERS, TECHNICIANS –  who craft cosmic artistic experiences.",
-    "categories": "CONCEPT CREATION, ART DIRECTING, CHOREOGRAPHIES, EVENTS, CONCERTS,PROMO/MUSIC VIDEOS",
+    "categories": "ART DIRECTING, CONCEPT CREATION, EVENTS, CHOREOGRAPHIES, PROMO/MUSIC VIDEOS, CONCERTS",
+
     "gists": {
       "gist1": {
         "title": "Creative = the gist",
