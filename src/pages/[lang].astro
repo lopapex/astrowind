@@ -5,9 +5,9 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Aim from '~/components/widgets/Aim.astro';
 import Team from '~/components/widgets/Team.astro';
 import i18next, { t } from 'i18next';
-import bgVideo from '~/assets/videos/background.mp4';
 import Categories from '~/components/widgets/Categories.astro';
 import Gist from '~/components/widgets/Gist.astro';
+import Video from '~/components/react/Video';
 
 export function getStaticPaths() {
   return i18next.languages.map((item) => ({
@@ -24,18 +24,15 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <video autoplay loop muted playsinline class="w-full h-[calc(100vh-75px)] top-[75px] bg-black">
-    <source src={bgVideo} type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  <Video client:idle id="home" />
 
-  <Aim id="aim" title={t('content.title')} content={t('content.content')} />
+  <Aim id="about" title={t('content.title')} content={t('content.content')} />
 
   <Categories />
 
-  <Gist id="aim" title={t('content.gists.gist1.title')} content={t('content.gists.gist1.content')} />
-  <Gist id="aim" title={t('content.gists.gist2.title')} content={t('content.gists.gist2.content')} />
-  <Gist id="aim" title={t('content.gists.gist3.title')} content={t('content.gists.gist3.content')} />
+  <Gist title={t('content.gists.gist1.title')} content={t('content.gists.gist1.content')} />
+  <Gist title={t('content.gists.gist2.title')} content={t('content.gists.gist2.content')} />
+  <Gist title={t('content.gists.gist3.title')} content={t('content.gists.gist3.content')} />
 
   <Team id="team" />
 
