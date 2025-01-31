@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 type TeamMember = {
   id: string;
-  nickname: string,
+  nickname: string;
   name: string;
   roles: string[];
   skills: string[];
