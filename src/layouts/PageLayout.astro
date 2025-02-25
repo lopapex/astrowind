@@ -4,6 +4,7 @@ import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 
 import type { MetaData } from '~/types';
+import FollowTag from '~/components/widgets/FollowTag.astro';
 
 export interface Props {
   metadata?: MetaData;
@@ -15,9 +16,10 @@ const { metadata } = Astro.props;
 <Layout metadata={metadata}>
   <div id="home"></div>
   <slot name="header">
-    <Header isSticky />
+    <Header isSticky position='center' />
   </slot>
   <main>
+    <FollowTag />
     <slot />
   </main>
   <slot name="footer">

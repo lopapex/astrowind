@@ -36,5 +36,13 @@
       "description": "Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.",
       "button": "Contact us"
     }
+  },
+  "followTag": "follow us",
+  "video": {
+    "creative": "Creative.",
+    "culture": "Culture.",
+    "community": "Community.",
+    "discover": "Discover more",
+    "noSupport": "Your browser does not support the video tag."
   }
 }

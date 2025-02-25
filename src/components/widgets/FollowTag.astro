@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+import i18next, { t } from 'i18next';
+import { SOCIAL_LINKS } from '~/constants/commons';
+
+const { lang } = Astro.params;
+await i18next.changeLanguage(lang);
+---
+
+<div class="fixed left-0 bottom-[15%] z-10 transform -rotate-90 translate-x-[-35%]">
+  <div class="flex justify-center items-center gap-1 p-2 bg-green">
+    <a class="text-black uppercase text-base hover:underline hover:text-muted" href="#contact">{t('followTag')}</a>
+    {
+      SOCIAL_LINKS.length ? (
+        <ul class="flex ml-1">
+          {SOCIAL_LINKS.map(({ ariaLabel, href, icon }) => (
+            <li>
+              <a
+                class="hover:text-muted rounded-lg text-sm p-1 inline-flex items-center"
+                aria-label={ariaLabel}
+                href={href}
+                target="_blank"
+              >
+                {icon && <Icon name={icon} class="w-5 h-5" />}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        ''
+      )
+    }
+  </div>
+</div>
+
+

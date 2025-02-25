@@ -24,7 +24,15 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Video client:idle id="home" />
+  <Video
+    client:idle
+    id="home"
+    noSupport={t('video.noSupport')}
+    discover={t('video.discover')}
+    creative={t('video.creative')}
+    community={t('video.community')}
+    culture={t('video.culture')}
+  />
 
   <Aim id="about" title={t('content.title')} content={t('content.content')} />
 
