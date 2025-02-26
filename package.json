@@ -28,6 +28,8 @@
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
     "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource-variable/montserrat": "^5.1.1",
+    "@fontsource-variable/raleway": "^5.1.1",
     "@tabler/icons-react": "^3.26.0",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",

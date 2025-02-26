@@ -8,6 +8,7 @@ import Button from '~/components/ui/Button.astro';
 import { trimSlash, getAsset } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
 import i18next, { t } from 'i18next';
+import { NAV_LINKS, NAV_LINKS_MAP } from '~/constants/commons';
 
 interface Link {
   text?: string;
@@ -44,13 +45,6 @@ const {
   showRssFeed = false,
   position = 'right',
 } = Astro.props;
-
-const links = [
-  { text: t('site.navigation.home'), href: '#home' },
-  { text: t('site.navigation.about'), href: '#about' },
-  { text: t('site.navigation.team'), href: '#team' },
-  { text: t('site.navigation.contact'), href: '#contact' },
-];
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
@@ -90,16 +84,16 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
       >
         {
-          links.map(({ text, href }) => (
+          NAV_LINKS.map(({ text, href }) => (
             <li>
               <a
                 class:list={[
-                  'hover:text-link dark:hover:text-white text-orange px-4 py-1 flex items-center whitespace-nowrap uppercase',
+                  'hover:text-link dark:hover:text-white text-orange-500 px-4 py-1 flex items-center whitespace-nowrap uppercase',
                   { 'aw-link-active': href === currentPath },
                 ]}
                 href={href}
               >
-                {text}
+                {t(text)}
               </a>
             </li>
           ))
@@ -138,6 +132,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             ''
           )
         }
+        <a class="btn" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
       </div>
     </div>
   </div>

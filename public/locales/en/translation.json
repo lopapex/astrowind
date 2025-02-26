@@ -5,7 +5,8 @@
       "home": "3c",
       "about": "about",
       "team": "team",
-      "contact": "contact"
+      "contact": "contact",
+      "button": "Let’s create togerther"
     }
   },
   "content": {
@@ -44,5 +45,21 @@
     "community": "Community.",
     "discover": "Discover more",
     "noSupport": "Your browser does not support the video tag."
+  },
+  "navigation": {
+    "button": "Let’s create together"
+  },
+  "aim": {
+    "title": {
+      "start": "We’re a ",
+      "highlight": "collective",
+      "end": "of professional rebels"
+    },
+    "roles": "Choreographers, Dancers, Technicians, Directors, Managers",
+    "message": {
+      "title": "who craft",
+      "description": "cosmic artistic experiences."
+    },
+    "button": "Explore our dna"
   }
 }
