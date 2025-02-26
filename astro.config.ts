@@ -12,6 +12,7 @@ import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
 import react from '@astrojs/react';
 import astroI18next from 'astro-i18next';
+import svgr from 'vite-plugin-svgr';
 
 import astrowind from './vendor/integration';
 
@@ -84,6 +85,7 @@ export default defineConfig({
   },
 
   vite: {
+    plugins: [svgr()],
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
