@@ -43,11 +43,9 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
   <div class="mx-auto text-center my-6 md:p-6 flex justify-center items-center flex-col">
     <div class="font-primary uppercase text-xl mb-[52px]">{t('team.title')}</div>
     <HighlightText
-      value={t('team.message')}
+      translateKey="team.message"
       className="mb-[72px] text-3xl font-primary max-w-xl"
       highlightClassName="font-secondary"
-      indexArray={[20, 22, 24]}
-      newLineIndexArray={[8]}
     />
     <TeamContainer
       client:idle

@@ -1,22 +1,23 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from 'framer-motion';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Pagination, A11y } from 'swiper/modules';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 
 const TeamCarousel = ({ team, rolesLabel, skillsLabel }) => {
   return (
     <Swiper
       className="max-w-[50%] md:max-w-[1092px]"
-      modules={[Navigation, Pagination, A11y]}
+      modules={[Pagination, A11y]}
+      loop
       pagination={{ clickable: true }}
       spaceBetween={20}
       slidesPerView={1}
       breakpoints={{
         768: {
-          slidesPerView: 3,
+          slidesPerView: team.length < 3 ? team.length : 3,
           spaceBetween: 50,
         },
       }}
@@ -24,7 +25,7 @@ const TeamCarousel = ({ team, rolesLabel, skillsLabel }) => {
       {team.map((member, index) => (
         <SwiperSlide key={index} className="cursor-pointer">
           <motion.div
-            className="relative flex flex-col border-none justify-start"
+            className="relative flex flex-col justify-start"
             whileHover="animate"
             variants={{
               animate: { scale: 0.95 },

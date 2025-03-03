@@ -28,17 +28,32 @@
     "button": "Let’s create together"
   },
   "aim": {
-    "title": "We’re a collective of professional rebels",
+    "title": {
+      "content": "We’re a collective of professional rebels",
+      "highlightIndexes": "4"
+    },
     "roles": "Choreographers, Dancers, Technicians, Directors, Managers",
-    "message": "who craft cosmic artistic experiences.",
+    "message": {
+      "content": "who craft cosmic artistic experiences.",
+      "highlightIndexes": "4, 6, 8",
+      "newLineIndexes": "3"
+    },
     "button": "Explore our dna"
   },
   "services": {
-    "content": "art direction performance tv shows/tours music videos audiovisual content concept creation concerts site-specific art brand events community events stage design light&sound"
+    "message": {
+      "content": "art direction performance tv shows/tours music videos audiovisual content concept creation concerts site-specific art brand events community events stage design light&sound",
+      "highlightIndexes": "0, 6, 8, 18, 24, 34",
+      "newLineIndexes": "5"
+    }
   },
   "team": {
     "title": "Team",
-    "message": "We are all different but connected by shared passion for things we love.",
+    "message": {
+      "content": "We are all different but connected by shared passion for things we love.",
+      "highlightIndexes": "20, 22, 24",
+      "newLineIndexes": "8"
+    },
     "skills": "Skills",
     "roles": "Roles"
   }

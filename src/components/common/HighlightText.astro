@@ -1,8 +1,18 @@
 ---
-const { value, indexArray, newLineIndexArray, className, highlightClassName } = Astro.props;
+import { t } from 'i18next';
+
+const { translateKey, className, highlightClassName } = Astro.props;
+
+const value = t(`${translateKey}.content`);
+const indexArray = t(`${translateKey}.highlightIndexes`)
+  .split(', ')
+  .map((item) => Number(item));
+const newLineArray = t(`${translateKey}.newLineIndexes`)
+  .split(', ')
+  .map((item) => Number(item));
 
 // Split by space and slash, but preserve '/'' in 'world map'
-const words = value.split(/(\s+|\/)/).reduce((acc, part, index, arr) => {
+const words: string[] = value.split(/(\s+|\/)/).reduce((acc, part, index, arr) => {
   if (part === '/' && arr[index - 1] === 'world' && arr[index + 1] === 'map') {
     acc[acc.length - 1] += part + arr[index + 1]; // Append '/' and 'map' to 'world'
     arr[index + 1] = ''; // Mark 'map' as processed
@@ -10,7 +20,7 @@ const words = value.split(/(\s+|\/)/).reduce((acc, part, index, arr) => {
     acc.push(part);
   }
   return acc;
-}, []);
+}, [] as string[]);
 ---
 
 <div class={className}>
@@ -18,7 +28,7 @@ const words = value.split(/(\s+|\/)/).reduce((acc, part, index, arr) => {
     words.map((word, index) => (
       <>
         {indexArray.includes(index) ? <span class={highlightClassName}>{word}</span> : word}
-        {newLineIndexArray?.includes(index) && <br />}
+        {newLineArray?.includes(index) && <br />}
       </>
     ))
   }
