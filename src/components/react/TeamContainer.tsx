@@ -1,75 +1,73 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { motion } from 'framer-motion';
+import { Navigation, Pagination, A11y } from 'swiper/modules';
 
-type TeamMember = {
-  id: string;
-  nickname: string;
-  name: string;
-  roles: string[];
-  skills: string[];
-  image: string;
-  description?: string;
-};
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-type Team = {
-  team: TeamMember[];
-  skillsLabel: string;
-  rolesLabel: string;
-};
-
-const TeamContainer = ({ team, skillsLabel, rolesLabel }: Team) => {
+const TeamCarousel = ({ team, rolesLabel, skillsLabel }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {team.map((member) => (
-        <motion.div
-          className="relative flex md:flex-col border md:border-none md:justify-start"
-          key={member.id}
-          whileHover="animate"
-          variants={{
-            animate: { scale: 0.95 },
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="w-1/2 md:w-full md:min-h-[630px] flex items-center justify-center overflow-hidden">
-            <motion.img
-              src={member.image}
-              alt={member.name}
-              className="my-auto max-h-full max-w-full"
-              variants={{
-                initial: { scale: 1 },
-                animate: { scale: 0.9, translateY: '-7.5%' },
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
+    <Swiper
+      className="max-w-[50%] md:max-w-[1092px]"
+      modules={[Navigation, Pagination, A11y]}
+      pagination={{ clickable: true }}
+      spaceBetween={20}
+      slidesPerView={1}
+      breakpoints={{
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      }}
+    >
+      {team.map((member, index) => (
+        <SwiperSlide key={index} className="cursor-pointer">
+          <motion.div
+            className="relative flex flex-col border-none justify-start"
+            whileHover="animate"
+            variants={{
+              animate: { scale: 0.95 },
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="flex items-center justify-center overflow-hidden">
+              <motion.img
+                src={member.image}
+                alt={member.name}
+                className="my-auto max-h-full max-w-full"
+                variants={{
+                  initial: { scale: 1 },
+                  animate: { scale: 0.9, translateY: '-7.5%' },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
 
-          <div className="text-left w-1/2 md:mt-[-16px] md:w-full p-5 md:p-0 md:text-center md:text-white z-10">
-            <div className="w-auto inline-block md:bg-gray-500 md:px-3 md:py-1 rounded-full text-sm font-semibold uppercase">
-              {member.nickname}
-            </div>
-            <div className="text-left text-xs border-b pb-2">
-              <div className="mt-2 font-medium uppercase">{member.name}</div>
-            </div>
-            <div className="text-left text-xs border-b">
-              <div className="mt-2 font-medium uppercase">{rolesLabel}:</div>
-              <div className="text-gray-300 md:h-[65px] md:line-clamp-3">{member.roles.join(', ')}</div>
-            </div>
-            <div className="text-left text-xs border-b">
-              <div className="mt-2 font-medium uppercase">{skillsLabel}:</div>
-              <div className="text-gray-300 md:h-[65px] md:line-clamp-3">{member.skills.join(', ')}</div>
-            </div>
-            {member.description && (
-              <div className="text-left text-xs mt-2">
-                <div
-                  className="prose prose-sm text-gray-300"
-                  dangerouslySetInnerHTML={{ __html: member.description }}
-                />
+            <div className="text-left p-0 z-10">
+              <div className="flex justify-center translate-y-[-52px]">
+                <div className="inline-block bg-green-500 px-3 py-1 font-semibold text-xl">{member.nickname}</div>
               </div>
-            )}
-          </div>
-        </motion.div>
+              <div className="mt-[-12px] font-medium uppercase text-lg md:text-2xl">{member.name}</div>
+              <div className="text-base mt-3">
+                <div className="font-medium uppercase">{rolesLabel}:</div>
+                <div className="font-semibold">{member.roles.join(', ')}</div>
+              </div>
+              <div className="text-base mt-3">
+                <div className="font-medium uppercase">{skillsLabel}:</div>
+                <div className="font-semibold">{member.skills.join(', ')}</div>
+              </div>
+              {member.description && (
+                <div className="text-xs mt-2">
+                  <div className="prose prose-sm" dangerouslySetInnerHTML={{ __html: member.description }} />
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </SwiperSlide>
       ))}
-    </div>
+    </Swiper>
   );
 };
 
-export default TeamContainer;
+export default TeamCarousel;

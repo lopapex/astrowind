@@ -5,8 +5,6 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Aim from '~/components/widgets/Aim.astro';
 import Team from '~/components/widgets/Team.astro';
 import i18next, { t } from 'i18next';
-import Categories from '~/components/widgets/Categories.astro';
-import Gist from '~/components/widgets/Gist.astro';
 import Video from '~/components/react/Video';
 import Services from '~/components/widgets/Services.astro';
 import { NAV_LINKS_MAP } from '~/constants/commons';
@@ -39,12 +37,6 @@ const metadata = {
   <Aim id={NAV_LINKS_MAP.ABOUT.href} />
 
   <Services id={NAV_LINKS_MAP.TEAM.href} />
-
-  <Categories />
-
-  <Gist title={t('content.gists.gist1.title')} content={t('content.gists.gist1.content')} />
-  <Gist title={t('content.gists.gist2.title')} content={t('content.gists.gist2.content')} />
-  <Gist title={t('content.gists.gist3.title')} content={t('content.gists.gist3.content')} />
 
   <Team id="team" />
 

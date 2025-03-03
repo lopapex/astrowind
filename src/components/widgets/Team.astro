@@ -4,6 +4,7 @@ import type { CallToAction, Widget } from '~/types';
 import { getCollection } from 'astro:content';
 import TeamContainer from '../react/TeamContainer';
 import { t } from 'i18next';
+import HighlightText from '../common/HighlightText.astro';
 
 export const prerender = true;
 
@@ -32,13 +33,27 @@ interface Props extends Widget {
 const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  wrapperClass="bg-orange-500"
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
   <div class="mx-auto text-center my-6 md:p-6 flex justify-center items-center flex-col">
+    <div class="font-primary uppercase text-xl mb-[52px]">{t('team.title')}</div>
+    <HighlightText
+      value={t('team.message')}
+      className="mb-[72px] text-3xl font-primary max-w-xl"
+      highlightClassName="font-secondary"
+      indexArray={[20, 22, 24]}
+      newLineIndexArray={[8]}
+    />
     <TeamContainer
       client:idle
-      team={formattedTeam}
-      skillsLabel={t('content.team.skills')}
-      rolesLabel={t('content.team.roles')}
+      team={[...formattedTeam, ...formattedTeam]}
+      skillsLabel={t('team.skills')}
+      rolesLabel={t('team.roles')}
     />
   </div>
 </WidgetWrapper>

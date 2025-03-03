@@ -66,6 +66,15 @@
   display: block;
 }
 
+.swiper-pagination {
+  top: 0px !important;
+  height: 30px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: white !important;
+}
+
 [astro-icon].icon-light > * {
   stroke-width: 1.2;
 }

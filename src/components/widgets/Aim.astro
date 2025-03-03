@@ -47,10 +47,13 @@ const purpleIndexes = [0, 2, 3];
     </div>
 
     <div class="relative">
-      <div class="text-white text-3xl flex uppercase font-montserrat font-extrabold flex-col">
-        <div>{t('aim.message.title')}</div>
-        <div class="font-raleway font-normal">{t('aim.message.description')}</div>
-      </div>
+      <HighlightText
+        value={t('aim.message')}
+        className="text-white text-3xl uppercase font-primary"
+        highlightClassName="font-secondary"
+        indexArray={[4, 6, 8]}
+        newLineIndexArray={[3]}
+      />
       <a class="btn mt-5" href={NAV_LINKS_MAP.CONTACT.href}>{t('aim.button')}</a>
       <div class="absolute left-[100px]">
         <ThumbsAsset />
