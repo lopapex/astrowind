@@ -128,14 +128,16 @@ import { UI } from 'astrowind:config';
         header.classList.remove('scroll');
       }
 
-      if (previousScroll > lastKnownScrollPosition && lastKnownScrollPosition > 60) {
-        header.classList.add('sticky', 'top-0');
-        header.classList.remove('absolute');
-        divChild.classList.add('!bg-nav');
-      } else {
-        header.classList.remove('sticky', 'top-0');
-        header.classList.add('absolute');
-        divChild.classList.remove('!bg-nav');
+      if (window.innerWidth >= 1024) {
+        if (previousScroll > lastKnownScrollPosition && lastKnownScrollPosition > 60) {
+          header.classList.add('sticky', 'md:top-0');
+          header.classList.remove('md:absolute');
+          divChild.classList.add('!bg-nav');
+        } else {
+          header.classList.remove('sticky', 'md:top-0');
+          header.classList.add('md:absolute');
+          divChild.classList.remove('!bg-nav');
+        }
       }
       ticking = false;
     }

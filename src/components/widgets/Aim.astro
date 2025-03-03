@@ -6,10 +6,9 @@ import ThumbsAsset from '~/components/react/assets/ThumbsAsset';
 
 import { t } from 'i18next';
 import { NAV_LINKS_MAP } from '~/constants/commons';
+import HighlightText from '../common/HighlightText.astro';
 
-interface Props extends Widget {
-  tagline?: string;
-}
+type Props = Widget;
 
 const { id, classes = {} } = Astro.props;
 
@@ -19,16 +18,18 @@ const purpleIndexes = [0, 2, 3];
 
 <WidgetWrapper id={id} wrapperClass="bg-aim" containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}>
   <div class="mx-auto text-center flex justify-center items-center flex-col gap-[150px] py-[150px] px-6">
-    <div class="relative max-w-xl p-5 text-3xl uppercase text-white font-primary">
-      {t('aim.title.start')}
-      <span class="font-secondary">{t('aim.title.highlight')}</span>
-      {t('aim.title.end')}
-      <div class="absolute top-[25px] right-[75px]">
+    <HighlightText
+      value={t('aim.title')}
+      className="relative max-w-xl p-5 text-3xl uppercase text-white font-primary"
+      highlightClassName="font-secondary"
+      indexArray={[4]}
+    >
+      <div class="absolute top-[85px] right-[100px] md:top-[25px] md:right-[45px]">
         <RebelAsset />
       </div>
-    </div>
+    </HighlightText>
 
-    <div class="text-3xl flex gap-5 uppercase">
+    <div class="text-3xl flex gap-5 uppercase flex-wrap justify-center items-center">
       {
         roles.map((role, index) => (
           <div

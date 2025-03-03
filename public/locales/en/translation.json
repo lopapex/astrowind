@@ -50,16 +50,15 @@
     "button": "Let’s create together"
   },
   "aim": {
-    "title": {
-      "start": "We’re a ",
-      "highlight": "collective",
-      "end": "of professional rebels"
-    },
+    "title": "We’re a collective of professional rebels",
     "roles": "Choreographers, Dancers, Technicians, Directors, Managers",
     "message": {
       "title": "who craft",
       "description": "cosmic artistic experiences."
     },
     "button": "Explore our dna"
+  },
+  "services": {
+    "content": "art direction performance tv shows/tours music videos audiovisual content concept creation concerts site-specific art brand events community events stage design light&sound"
   }
 }

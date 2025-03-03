@@ -51,7 +51,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <header
   class:list={[
-    { relative: !isSticky, dark: isDark, 'absolute top-0': isSticky },
+    { relative: !isSticky, dark: isDark, 'sticky md:absolute md:top-0 !bg-black': isSticky },
     'top-0 absolute z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-all ease-in-out',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
@@ -98,6 +98,9 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             </li>
           ))
         }
+        <li class="my-2 mx-4 block md:hidden">
+          <a class="btn" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
+        </li>
       </ul>
     </nav>
     <div
@@ -132,7 +135,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             ''
           )
         }
-        <a class="btn" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
+        <a class="btn hidden md:block" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
       </div>
     </div>
   </div>

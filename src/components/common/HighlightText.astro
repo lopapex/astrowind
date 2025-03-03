@@ -1,0 +1,26 @@
+---
+const { value, indexArray, newLineIndexArray, className, highlightClassName } = Astro.props;
+
+// Split by space and slash, but preserve '/'' in 'world map'
+const words = value.split(/(\s+|\/)/).reduce((acc, part, index, arr) => {
+  if (part === '/' && arr[index - 1] === 'world' && arr[index + 1] === 'map') {
+    acc[acc.length - 1] += part + arr[index + 1]; // Append '/' and 'map' to 'world'
+    arr[index + 1] = ''; // Mark 'map' as processed
+  } else if (part !== '') {
+    acc.push(part);
+  }
+  return acc;
+}, []);
+---
+
+<div class={className}>
+  {
+    words.map((word, index) => (
+      <>
+        {indexArray.includes(index) ? <span class={highlightClassName}>{word}</span> : word}
+        {newLineIndexArray?.includes(index) && <br />}
+      </>
+    ))
+  }
+  <slot />
+</div>

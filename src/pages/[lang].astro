@@ -8,6 +8,8 @@ import i18next, { t } from 'i18next';
 import Categories from '~/components/widgets/Categories.astro';
 import Gist from '~/components/widgets/Gist.astro';
 import Video from '~/components/react/Video';
+import Services from '~/components/widgets/Services.astro';
+import { NAV_LINKS_MAP } from '~/constants/commons';
 
 export function getStaticPaths() {
   return i18next.languages.map((item) => ({
@@ -34,7 +36,9 @@ const metadata = {
     culture={t('video.culture')}
   />
 
-  <Aim id="about" />
+  <Aim id={NAV_LINKS_MAP.ABOUT.href} />
+
+  <Services id={NAV_LINKS_MAP.TEAM.href} />
 
   <Categories />
 
