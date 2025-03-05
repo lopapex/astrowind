@@ -8,6 +8,7 @@ import i18next, { t } from 'i18next';
 import Video from '~/components/react/Video';
 import Services from '~/components/widgets/Services.astro';
 import { NAV_LINKS_MAP } from '~/constants/commons';
+import Dna from '~/components/widgets/Dna.astro';
 
 export function getStaticPaths() {
   return i18next.languages.map((item) => ({
@@ -39,6 +40,8 @@ const metadata = {
   <Services id={NAV_LINKS_MAP.TEAM.href} />
 
   <Team id="team" />
+
+  <Dna id="dna" />
 
   <CallToAction
     id="contact"

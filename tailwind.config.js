@@ -51,6 +51,7 @@ export default {
           900: '#280A3F',
         },
         aim: '#07070a',
+        dna: '#100b17',
         nav: 'rgba(0, 0, 0, 0.1)',
       },
       fontFamily: {

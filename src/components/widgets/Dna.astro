@@ -1,0 +1,65 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { Widget } from '~/types';
+import RebelAsset from '~/components/react/assets/RebelAsset';
+import ThumbsAsset from '~/components/react/assets/ThumbsAsset';
+
+import { t } from 'i18next';
+import { NAV_LINKS_MAP } from '~/constants/commons';
+import HighlightText from '../common/HighlightText.astro';
+
+type Props = Widget;
+
+const { id, classes = {} } = Astro.props;
+
+const roles = t('aim.roles').split(', ');
+const purpleIndexes = [0, 2, 3];
+---
+
+<WidgetWrapper
+  id={id}
+  roundTopClass="bg-orange-500"
+  wrapperClass="bg-dna"
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
+>
+  <div class="mx-auto text-center flex justify-center items-center flex-col gap-[150px] py-[150px] px-6">
+    <HighlightText
+      translateKey="aim.title"
+      className="relative max-w-xl p-5 text-3xl uppercase text-white font-primary"
+      highlightClassName="font-secondary"
+    >
+      <div class="absolute top-[85px] right-[100px] md:top-[25px] md:right-[45px]">
+        <RebelAsset />
+      </div>
+    </HighlightText>
+
+    <div class="text-3xl flex gap-5 uppercase flex-wrap justify-center items-center">
+      {
+        roles.map((role, index) => (
+          <div
+            class:list={{
+              'text-purple-500': purpleIndexes.includes(index),
+              'text-orange-500': !purpleIndexes.includes(index),
+              'font-primary': index % 2 !== 0,
+              'font-secondary': index % 2 === 0,
+            }}
+          >
+            {role}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="relative">
+      <HighlightText
+        translateKey="aim.message"
+        className="text-white text-3xl uppercase font-primary"
+        highlightClassName="font-secondary"
+      />
+      <a class="btn mt-5" href={NAV_LINKS_MAP.CONTACT.href}>{t('aim.button')}</a>
+      <div class="absolute left-[100px]">
+        <ThumbsAsset />
+      </div>
+    </div>
+  </div>
+</WidgetWrapper>
