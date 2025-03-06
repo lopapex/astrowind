@@ -1,26 +1,16 @@
 ---
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import type { CallToAction, Widget } from '~/types';
-import { getCollection } from 'astro:content';
 import TeamContainer from '../react/TeamContainer';
 import { t } from 'i18next';
 import HighlightText from '../common/HighlightText.astro';
+import { fetchTeamData } from '~/utils/api';
 
-export const prerender = true;
+export const prerender = false;
 
-const team = await getCollection('team');
-const { lang } = Astro.params;
+const team = await fetchTeamData();
 
-const formattedTeam = team
-  .filter((member) => {
-    const [memberLang] = member.id.split('/');
-    return memberLang === lang;
-  })
-  .map((member) => ({
-    ...member.data,
-    id: member.id,
-    description: member.rendered?.html || member.body,
-  }));
+const formattedTeam = team;
 
 interface Props extends Widget {
   title?: string;

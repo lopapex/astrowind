@@ -52,11 +52,11 @@ const TeamCarousel = ({ team, rolesLabel, skillsLabel }) => {
               <div className="mt-[-12px] font-medium uppercase text-lg md:text-2xl">{member.name}</div>
               <div className="text-base mt-3">
                 <div className="font-medium uppercase">{rolesLabel}:</div>
-                <div className="font-semibold">{member.roles.join(', ')}</div>
+                <div className="font-semibold">{member.roles?.join(', ')}</div>
               </div>
               <div className="text-base mt-3">
                 <div className="font-medium uppercase">{skillsLabel}:</div>
-                <div className="font-semibold">{member.skills.join(', ')}</div>
+                <div className="font-semibold">{member.skills?.join(', ')}</div>
               </div>
               {member.description && (
                 <div className="text-xs mt-2">
