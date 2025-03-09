@@ -27,15 +27,19 @@ const WrapperTag = as;
 ---
 
 <>
-  <WrapperTag class={twMerge('relative not-prose scroll-mt-[72px]', wrapperClass)} {...id ? { id } : {}}>
+  <WrapperTag
+    class={twMerge('relative not-prose scroll-mt-[72px] overflow-hidden', wrapperClass)}
+    {...id ? { id } : {}}
+  >
     {
       roundTopClass && (
-        <div>
-          <div class={twMerge('relative w-full h-full', wrapperClass)}>
-            <div class={twMerge('absolute top-0 w-full h-[100vh] ', roundTopClass)} />
+        <div class={twMerge(roundTopClass)}>
+          <div class={twMerge('absolute top-0 left-0 w-full h-full', roundTopClass)} />
+          <div class={twMerge('relative w-full h-full max-w-6xl mx-auto', wrapperClass)}>
+            <div class={twMerge('absolute top-0 w-full h-full ', roundTopClass)} />
             <div
               class={twMerge(
-                'absolute top-[40px] left-[-40px] w-[calc(100%+80px)] h-[100vh] blur-lg rounded-t-full',
+                'absolute top-[40px] left-[-40px] w-[calc(100%+80px)] h-full blur-lg rounded-t-full',
                 wrapperClass
               )}
             />
@@ -55,12 +59,13 @@ const WrapperTag = as;
     }
     {
       roundBottomClass && (
-        <div>
-          <div class={twMerge('relative w-full h-full', wrapperClass)}>
-            <div class={twMerge('absolute bottom-0 w-full h-[100vh]', roundBottomClass)} />
+        <div class={twMerge(roundBottomClass)}>
+          <div class={twMerge('absolute top-0 left-0 w-full h-full', roundBottomClass)} />
+          <div class={twMerge('relative w-full h-full max-w-6xl mx-auto', wrapperClass)}>
+            <div class={twMerge('absolute bottom-0 w-full h-full', roundBottomClass)} />
             <div
               class={twMerge(
-                'absolute bottom-[40px] left-[-40px] w-[calc(100%+80px)] h-[100vh] blur-lg rounded-b-full',
+                'absolute bottom-[40px] left-[-40px] w-[calc(100%+80px)] h-full blur-lg rounded-b-full',
                 wrapperClass
               )}
             />

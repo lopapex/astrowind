@@ -20,14 +20,14 @@ const { lang } = Astro.params;
 await i18next.changeLanguage(lang);
 
 const metadata = {
-  title: t('site.title'),
+  title: t('title'),
 };
 ---
 
 <Layout metadata={metadata}>
   <Video
     client:idle
-    id="home"
+    id={NAV_LINKS_MAP.HOME.href.replace('#', '')}
     noSupport={t('video.noSupport')}
     discover={t('video.discover')}
     creative={t('video.creative')}
@@ -35,16 +35,16 @@ const metadata = {
     culture={t('video.culture')}
   />
 
-  <Aim id={NAV_LINKS_MAP.ABOUT.href} />
+  <Aim id={NAV_LINKS_MAP.ABOUT.href.replace('#', '')} />
 
-  <Services id={NAV_LINKS_MAP.TEAM.href} />
+  <Services id={NAV_LINKS_MAP.SERVICES.href.replace('#', '')} />
 
-  <Team id="team" />
+  <Team id={NAV_LINKS_MAP.TEAM.href.replace('#', '')} />
 
-  <Dna id="dna" />
+  <Dna id={NAV_LINKS_MAP.DNA.href.replace('#', '')} />
 
   <CallToAction
-    id="contact"
+    id={NAV_LINKS_MAP.CONTACT.href.replace('#', '')}
     title={t('content.contact.title')}
     subtitle={t('content.contact.description')}
     actions={[

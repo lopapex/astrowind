@@ -18,7 +18,7 @@ const Video = ({ id, noSupport, community, creative, culture, discover }: VideoP
         {noSupport}
       </video>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-orange-500">
-        <div className="text-5xl md:text-video uppercase flex flex-col justify-center items-center">
+        <div className="text-5xl lg:text-video uppercase flex flex-col justify-center items-center">
           <div className="font-primary">{creative}</div>
           <div className="font-primary">{culture}</div>
           <div className="font-secondary">{community}</div>

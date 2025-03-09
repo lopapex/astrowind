@@ -20,7 +20,7 @@ const { isDark = false, containerClass = '', bg } = Astro.props;
 <div
   class:list={[
     twMerge(
-      'relative mx-auto max-w-7xl px-4 md:px-6 py-2 md:py-4 lg:py-6 text-default intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+      'relative mx-auto max-w-7xl px-4 lg:px-6 py-2 lg:py-6 text-default intersect-once intersect-quarter intercept-no-queue motion-safe:lg:opacity-0 motion-safe:lg:intersect:animate-fade',
       containerClass
     ),
     { dark: isDark },

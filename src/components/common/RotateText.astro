@@ -1,0 +1,10 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+const { title, description, rotateClass = 'rotate-[-5deg]' } = Astro.props;
+---
+
+<div class="flex flex-col justify-center items-center gap-10 z-10">
+  <div class={twMerge('dna-title bg-green-500 w-fit text-4xl px-5 py-2 transform', rotateClass)}>{title}</div>
+  <div class="dna-description text-white text-base max-w-[400px]">{description}</div>
+</div>

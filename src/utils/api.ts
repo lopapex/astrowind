@@ -1,10 +1,10 @@
 const GOOGLE_SHEET_API_URL =
   'https://script.google.com/macros/s/AKfycbymFzqi6SaNgFFWetbWimasKbWfm08iT5eWTydzf0WmRcx-auN4UFaTckTkKzMu_5IbkQ/exec?path';
-const TEAM_API_URL = `${GOOGLE_SHEET_API_URL}=team-en`;
+const TEAM_SHEET = `team`;
 
-export async function fetchTeamData() {
+export async function fetchTeamData(lang = 'en') {
   try {
-    const response = await fetch(TEAM_API_URL);
+    const response = await fetch(`${GOOGLE_SHEET_API_URL}=${TEAM_SHEET}-${lang}`);
     const { data } = await response.json();
 
     if (!Array.isArray(data)) {

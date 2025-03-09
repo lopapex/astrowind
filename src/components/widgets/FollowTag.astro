@@ -7,15 +7,15 @@ const { lang } = Astro.params;
 await i18next.changeLanguage(lang);
 ---
 
-<div class="fixed left-0 bottom-[15%] z-10 transform -rotate-90 translate-x-[-35px] md:translate-x-[-65px]">
-  <div class="flex justify-center items-center gap-1 p-0 md:p-2 bg-green-500">
+<div class="fixed left-0 bottom-[15%] z-10 transform -rotate-90 translate-x-[-35px] lg:translate-x-[-65px]">
+  <div class="flex justify-center items-center gap-1 p-0 lg:p-2 bg-green-500">
     <a
-      class="hidden md:block text-black uppercase text-base hover:underline hover:text-muted"
+      class="hidden lg:block text-black uppercase text-base hover:underline hover:text-muted"
       href={NAV_LINKS_MAP.CONTACT.href}>{t('followTag')}</a
     >
     {
       SOCIAL_LINKS.length ? (
-        <ul class="flex ml-[24px] mr-[24px] mt-1 md:ml-1 md:mr-0 md:mt-auto">
+        <ul class="flex ml-[24px] mr-[24px] mt-1 lg:ml-1 lg:mr-0 lg:mt-auto">
           {SOCIAL_LINKS.map(({ ariaLabel, href, icon }) => (
             <li>
               <a

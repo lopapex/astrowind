@@ -44,6 +44,14 @@
   .font-secondary {
     @apply font-raleway font-normal;
   }
+
+  .dna-title {
+    @apply font-montserrat font-medium;
+  }
+
+  .dna-description {
+    @apply font-raleway font-medium;
+  }
 }
 
 #header.scroll > div:first-child {

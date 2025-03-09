@@ -13,19 +13,19 @@ const { id, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper id={id} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}>
-  <div class="mx-auto text-center flex justify-center items-center flex-col gap-[150px] py-[150px] px-6">
+  <div class="mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
     <HighlightText
       translateKey="services.message"
       className="relative max-w-xl p-5 text-5xl uppercase font-primary"
       highlightClassName="font-secondary"
     >
-      <div class="absolute top-[-100px] right-[100px] md:top-[-120px] md:right-[-50px]">
+      <div class="absolute top-[-100px] right-[100px] lg:top-[-120px] lg:right-[-50px]">
         <ManAsset />
       </div>
-      <div class="hidden md:block md:absolute md:top-[200px] md:left-[45px]">
+      <div class="hidden lg:block lg:absolute lg:top-[200px] lg:left-[45px]">
         <NoteAsset />
       </div>
-      <div class="absolute bottom-[-100px] right-[0px] md:bottom-[-120px] md:right-[50pxpx]">
+      <div class="absolute bottom-[-100px] right-[0px] lg:bottom-[-120px] lg:right-[50pxpx]">
         <CheckAsset />
       </div>
     </HighlightText>

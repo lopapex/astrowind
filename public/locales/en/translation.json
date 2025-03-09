@@ -1,14 +1,4 @@
 {
-  "site": {
-    "title": "Creative. Culture. Community",
-    "navigation": {
-      "home": "3c",
-      "about": "about",
-      "team": "team",
-      "contact": "contact",
-      "button": "Let’s create togerther"
-    }
-  },
   "content": {
     "contact": {
       "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Fusce suscipit libero eget elit. Aenean placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu.",
@@ -16,6 +6,7 @@
       "button": "Contact us"
     }
   },
+  "title": "Creative. Culture. Community",
   "followTag": "follow us",
   "video": {
     "creative": "Creative.",
@@ -25,6 +16,10 @@
     "noSupport": "Your browser does not support the video tag."
   },
   "navigation": {
+    "about": "about",
+    "services": "services",
+    "team": "team",
+    "dna": "our dna",
     "button": "Let’s create together"
   },
   "aim": {
@@ -56,5 +51,20 @@
     },
     "skills": "Skills",
     "roles": "Roles"
+  },
+  "dna": {
+    "title": "Our Dna",
+    "creative": {
+      "title": "Creative = the gist",
+      "description": "A term, perhaps, of dubious originality, but the act is like no other. The flow of bold ideas that lead us to that captivating pulse of novelty and cool experience."
+    },
+    "culture": {
+      "title": "Culture = the love",
+      "description": "Independent culture opens the space for change and a deeper sense of the world and society around. And we f*cking love it. "
+    },
+    "community": {
+      "title": "Community = the form",
+      "description": "Our basic instinct is to be together. Wake up the potential and spark the talent among each other. Community gives space for creating magic across disciplines."
+    }
   }
 }

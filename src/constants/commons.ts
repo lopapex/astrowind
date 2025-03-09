@@ -8,10 +8,12 @@ export const SOCIAL_LINKS = [
 ];
 
 export const NAV_LINKS_MAP = {
-  HOME: { text: 'site.navigation.home', href: '#home' },
-  ABOUT: { text: 'site.navigation.about', href: '#about' },
-  TEAM: { text: 'site.navigation.team', href: '#team' },
-  CONTACT: { text: 'site.navigation.contact', href: '#contact' },
+  HOME: { text: undefined, href: '#home' },
+  ABOUT: { text: 'navigation.about', href: '#about' },
+  SERVICES: { text: 'navigation.services', href: '#services' },
+  TEAM: { text: 'navigation.team', href: '#team' },
+  DNA: { text: 'navigation.dna', href: '#dna' },
+  CONTACT: { text: undefined, href: '#contact' },
 };
 
-export const NAV_LINKS = Object.values(NAV_LINKS_MAP);
+export const NAV_LINKS = Object.values(NAV_LINKS_MAP).filter((item) => item.text !== undefined);
