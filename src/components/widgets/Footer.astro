@@ -1,44 +1,54 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SOCIAL_LINKS } from '~/constants/commons';
-
-export interface Props {
-  footNote?: string;
-  theme?: string;
-}
-
-const { footNote = '', theme = 'light' } = Astro.props;
+import { NAV_LINKS_MAP, SOCIAL_LINKS } from '~/constants/commons';
+import { t } from 'i18next';
+import { Image } from 'astro:assets';
+import SignatureAsset from '../react/assets/SignatureAsset';
 ---
 
-<footer class:list={[{ dark: theme === 'dark' }, 'relative not-prose']}>
-  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+<footer class:list={['relative not-prose bg-blue-500']} id={NAV_LINKS_MAP.CONTACT.href.replace('#', '')}>
   <div
-    class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300 intersect-once intersect-quarter intercept-no-queue motion-safe:lg:opacity-0 motion-safe:lg:intersect:animate-fade"
+    class="absolute w-[calc(100%+80px)] h-[100px] top-[-35px] left-0 bg-blue-500 transform rotate-[-2deg] pointer-events-none"
   >
-    <div class="lg:flex lg:items-center lg:justify-between py-6 lg:py-8">
-      {
-        SOCIAL_LINKS.length ? (
-          <ul class="flex mb-4 lg:order-1 -ml-2 lg:ml-4 lg:mb-0 rtl:ml-0 rtl:-mr-2 rtl:lg:ml-0 rtl:lg:mr-4">
-            {SOCIAL_LINKS.map(({ ariaLabel, href, icon }) => (
-              <li>
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                  target="_blank"
-                >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          ''
-        )
-      }
-
-      <div class="text-sm mr-4 dark:text-muted">
-        <Fragment set:html={footNote} />
+  </div>
+  <div class="absolute top-0 right-0">
+    <SignatureAsset />
+  </div>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div
+    class="relative max-w-7xl mx-auto px-4 sm:px-6 intersect-once intersect-quarter intercept-no-queue motion-safe:lg:opacity-0 motion-safe:lg:intersect:animate-fade"
+  >
+    <div class="lg:flex lg:items-center py-6 lg:py-8 px-5">
+      <div class="flex flex-col gap-2 lg:w-1/2">
+        <div class="font-primary text-green-500 text-3xl">
+          {t('footer.follow')}
+        </div>
+        <div class="font-primary font-semibold text-white text-lg">
+          {t('footer.socials')}
+        </div>
+      </div>
+      <div class="flex flex-col gap-6 lg:w-1/2">
+        {
+          SOCIAL_LINKS.length ? (
+            <ul class="flex mb-4 lg:mb-0 rtl:ml-0 rtl:-mr-2 rtl:lg:ml-0 rtl:lg:mr-4">
+              {SOCIAL_LINKS.map(({ ariaLabel, href, icon }) => (
+                <li>
+                  <a
+                    class="text-white hover:text-orange-500 rounded-lg text-sm p-1 inline-flex items-center"
+                    aria-label={ariaLabel}
+                    href={href}
+                    target="_blank"
+                  >
+                    {icon && <Icon name={icon} class="w-5 h-5" />}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            ''
+          )
+        }
+        <Image src={'/images/logo.png'} alt="CCC" width="85" height="85" />
       </div>
     </div>
   </div>

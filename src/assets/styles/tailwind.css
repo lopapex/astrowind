@@ -2,25 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .bg-page {
-    background-color: var(--aw-color-bg-page);
+@layer base {
+  @font-face {
+    font-family: 'Delight';
+    src: url(/fonts/Delight-ExtraBold.woff2) format('woff2');
+    font-weight: 800;
   }
-  .bg-dark {
-    background-color: var(--aw-color-bg-page-dark);
+
+  @font-face {
+    font-family: 'Delight';
+    src: url(/fonts/Delight-Medium.woff2) format('woff2');
+    font-weight: 500;
   }
-  .bg-light {
-    background-color: var(--aw-color-bg-page);
-  }
-  .text-page {
-    color: var(--aw-color-text-page);
-  }
-  .text-muted {
-    color: var(--aw-color-text-muted);
+
+  @font-face {
+    font-family: 'Delight';
+    src: url(/fonts/Delight-SemiBold.woff2) format('woff2');
+    font-weight: 600;
   }
 }
 
 @layer components {
+  .text-muted {
+    @apply text-gray-400;
+  }
+
   .btn {
     @apply inline-flex items-center justify-center rounded-full border-white text-white uppercase text-base border bg-transparent font-semibold text-center leading-snug transition py-1 px-3 ease-in duration-200 cursor-pointer hover:bg-orange-500 hover:border-orange-500;
   }
@@ -38,15 +44,17 @@
   }
 
   .font-primary {
-    @apply font-montserrat font-extrabold;
+    @apply font-extrabold;
+    font-family: 'Delight', sans-serif;
   }
 
   .font-secondary {
-    @apply font-raleway font-normal;
+    @apply font-raleway;
   }
 
   .dna-title {
-    @apply font-montserrat font-medium;
+    @apply font-medium;
+    font-family: 'Delight', sans-serif;
   }
 
   .dna-description {

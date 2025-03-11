@@ -46,8 +46,8 @@
     "title": "Team",
     "message": {
       "content": "We are all different but connected by shared passion for things we love.",
-      "highlightIndexes": "20, 22, 24",
-      "newLineIndexes": "8"
+      "highlightIndexes": "18, 20, 22, 24",
+      "newLineIndexes": "8, 17"
     },
     "skills": "Skills",
     "roles": "Roles"
@@ -66,5 +66,9 @@
       "title": "Community = the form",
       "description": "Our basic instinct is to be together. Wake up the potential and spark the talent among each other. Community gives space for creating magic across disciplines."
     }
+  },
+  "footer": {
+    "follow": "Follow us",
+    "socials": "Wanna see what's fresh on the set?"
   }
 }
