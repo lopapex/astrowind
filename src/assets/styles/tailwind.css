@@ -49,7 +49,7 @@
   }
 
   .font-secondary {
-    @apply font-raleway;
+    @apply font-raleway font-normal;
   }
 
   .dna-title {
