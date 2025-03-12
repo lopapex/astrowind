@@ -1,8 +1,14 @@
 ---
-
+import { UI } from 'astrowind:config';
 ---
 
-<script is:inline>
+<script is:inline define:vars={{ defaultTheme: UI.theme }}>
+  if (window.basic_script) {
+    return;
+  }
+
+  window.basic_script = true;
+
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -12,7 +18,6 @@
   }
 
   const initTheme = function () {
-    const defaultTheme = 'system';
     if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
       applyTheme(defaultTheme.replace(':only', ''));
     } else if (
@@ -36,6 +41,7 @@
   }
 
   const onLoad = function () {
+    let previousScroll = 0;
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
@@ -113,17 +119,32 @@
 
     function applyHeaderStylesOnScroll() {
       const header = document.querySelector('#header[data-aw-sticky-header]');
+      const divChild = header.children[0];
+
       if (!header) return;
       if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
         header.classList.add('scroll');
       } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
         header.classList.remove('scroll');
       }
+
+      if (window.innerWidth >= 1024) {
+        if (previousScroll > lastKnownScrollPosition && lastKnownScrollPosition > 60) {
+          header.classList.add('sticky', 'lg:top-0');
+          header.classList.remove('lg:absolute');
+          divChild.classList.add('!bg-nav');
+        } else {
+          header.classList.remove('sticky', 'lg:top-0');
+          header.classList.add('lg:absolute');
+          divChild.classList.remove('!bg-nav');
+        }
+      }
       ticking = false;
     }
     applyHeaderStylesOnScroll();
 
     attachEvent([document], 'scroll', function () {
+      previousScroll = lastKnownScrollPosition;
       lastKnownScrollPosition = window.scrollY;
 
       if (!ticking) {

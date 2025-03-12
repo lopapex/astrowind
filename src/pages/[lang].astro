@@ -1,13 +1,13 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import CallToAction from '~/components/widgets/CallToAction.astro';
 import Aim from '~/components/widgets/Aim.astro';
 import Team from '~/components/widgets/Team.astro';
 import i18next, { t } from 'i18next';
-import Categories from '~/components/widgets/Categories.astro';
-import Gist from '~/components/widgets/Gist.astro';
 import Video from '~/components/react/Video';
+import Services from '~/components/widgets/Services.astro';
+import { NAV_LINKS_MAP } from '~/constants/commons';
+import Dna from '~/components/widgets/Dna.astro';
 
 export function getStaticPaths() {
   return i18next.languages.map((item) => ({
@@ -19,33 +19,26 @@ const { lang } = Astro.params;
 await i18next.changeLanguage(lang);
 
 const metadata = {
-  title: t('site.title'),
+  title: t('title'),
 };
 ---
 
 <Layout metadata={metadata}>
-  <Video client:idle id="home" />
-
-  <Aim id="about" title={t('content.title')} content={t('content.content')} />
-
-  <Categories />
-
-  <Gist title={t('content.gists.gist1.title')} content={t('content.gists.gist1.content')} />
-  <Gist title={t('content.gists.gist2.title')} content={t('content.gists.gist2.content')} />
-  <Gist title={t('content.gists.gist3.title')} content={t('content.gists.gist3.content')} />
-
-  <Team id="team" />
-
-  <CallToAction
-    id="contact"
-    title={t('content.contact.title')}
-    subtitle={t('content.contact.description')}
-    actions={[
-      {
-        variant: 'primary',
-        text: t('content.contact.button') || '',
-        href: 'mailto:matej.novotnny@gmail.com',
-      },
-    ]}
+  <Video
+    client:idle
+    id={NAV_LINKS_MAP.HOME.href.replace('#', '')}
+    noSupport={t('video.noSupport')}
+    discover={t('video.discover')}
+    creative={t('video.creative')}
+    community={t('video.community')}
+    culture={t('video.culture')}
   />
+
+  <Aim id={NAV_LINKS_MAP.ABOUT.href.replace('#', '')} />
+
+  <Services id={NAV_LINKS_MAP.SERVICES.href.replace('#', '')} />
+
+  <Team id={NAV_LINKS_MAP.TEAM.href.replace('#', '')} />
+
+  <Dna id={NAV_LINKS_MAP.DNA.href.replace('#', '')} />
 </Layout>

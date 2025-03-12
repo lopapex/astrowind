@@ -1,28 +1,60 @@
 ---
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
-import type { CallToAction, Widget } from '~/types';
+import type { Widget } from '~/types';
+import RebelAsset from '~/components/react/assets/RebelAsset';
+import ThumbsAsset from '~/components/react/assets/ThumbsAsset';
 
-interface Props extends Widget {
-  title?: string | null;
-  content?: string | null;
-  tagline?: string;
-  callToAction?: CallToAction;
-  actions?: string | CallToAction[];
-}
+import { t } from 'i18next';
+import { NAV_LINKS_MAP } from '~/constants/commons';
+import HighlightText from '../common/HighlightText.astro';
 
-const {
-  content = await Astro.slots.render('content'),
-  title = await Astro.slots.render('content'),
-  id,
-  isDark = false,
-  classes = {},
-  bg = await Astro.slots.render('bg'),
-} = Astro.props;
+type Props = Widget;
+
+const { id, classes = {} } = Astro.props;
+
+const roles = t('aim.roles').split(', ');
+const purpleIndexes = [0, 2, 3];
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div class="mx-auto text-center p-6 flex justify-center items-center flex-col">
-    <p class="p-5 text-3xl uppercase" set:html={title} />
-    <p class="p-5 text-xl text-muted dark:text-slate-400" set:html={content} />
+<WidgetWrapper id={id} wrapperClass="bg-aim" containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}>
+  <div class="mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
+    <HighlightText
+      translateKey="aim.title"
+      className="relative max-w-xl p-5 text-3xl uppercase text-white font-primary"
+      highlightClassName="font-secondary"
+    >
+      <div class="absolute top-[85px] right-[100px] lg:top-[25px] lg:right-[45px]">
+        <RebelAsset />
+      </div>
+    </HighlightText>
+
+    <div class="text-3xl flex gap-5 uppercase flex-wrap justify-center items-center">
+      {
+        roles.map((role, index) => (
+          <div
+            class:list={{
+              'text-purple-500': purpleIndexes.includes(index),
+              'text-orange-500': !purpleIndexes.includes(index),
+              'font-primary': index % 2 !== 0,
+              'font-secondary': index % 2 === 0,
+            }}
+          >
+            {role}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="relative">
+      <HighlightText
+        translateKey="aim.message"
+        className="text-white text-3xl uppercase font-primary"
+        highlightClassName="font-secondary"
+      />
+      <a class="btn mt-5" href={NAV_LINKS_MAP.DNA.href}>{t('aim.button')}</a>
+      <div class="absolute left-[100px]">
+        <ThumbsAsset />
+      </div>
+    </div>
   </div>
 </WidgetWrapper>

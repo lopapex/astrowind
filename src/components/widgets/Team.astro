@@ -1,25 +1,17 @@
 ---
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import type { CallToAction, Widget } from '~/types';
-import { getCollection } from 'astro:content';
 import TeamContainer from '../react/TeamContainer';
 import { t } from 'i18next';
+import HighlightText from '../common/HighlightText.astro';
+import { fetchTeamData } from '~/utils/api';
 
-export const prerender = true;
+export const prerender = false;
 
-const team = await getCollection('team');
 const { lang } = Astro.params;
+const team = await fetchTeamData(lang);
 
-const formattedTeam = team
-  .filter((member) => {
-    const [memberLang] = member.id.split('/');
-    return memberLang === lang;
-  })
-  .map((member) => ({
-    ...member.data,
-    id: member.id,
-    description: member.rendered?.html || member.body,
-  }));
+const formattedTeam = team;
 
 interface Props extends Widget {
   title?: string;
@@ -32,13 +24,25 @@ interface Props extends Widget {
 const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div class="mx-auto text-center my-6 md:p-6 flex justify-center items-center flex-col">
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  wrapperClass="bg-orange-500 py-[100px]"
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <div class="mx-auto text-center my-6 lg:p-6 flex justify-center items-center flex-col">
+    <div class="font-primary uppercase text-xl mb-[52px]">{t('team.title')}</div>
+    <HighlightText
+      translateKey="team.message"
+      className="mb-[72px] text-3xl font-primary max-w-xl"
+      highlightClassName="font-secondary"
+    />
     <TeamContainer
       client:idle
-      team={formattedTeam}
-      skillsLabel={t('content.team.skills')}
-      rolesLabel={t('content.team.roles')}
+      team={[...formattedTeam, ...formattedTeam]}
+      skillsLabel={t('team.skills')}
+      rolesLabel={t('team.roles')}
     />
   </div>
 </WidgetWrapper>

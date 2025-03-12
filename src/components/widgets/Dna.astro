@@ -1,0 +1,48 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { Widget } from '~/types';
+
+import { t } from 'i18next';
+import RotateText from '../common/RotateText.astro';
+import DnaAsset from '../react/assets/DnaAsset';
+import SquareAsset from '../react/assets/SquareAsset';
+import SpiralAsset from '../react/assets/SpiralAsset';
+
+type Props = Widget;
+
+const { id, classes = {} } = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  roundTopClass="bg-orange-500"
+  wrapperClass="bg-dna"
+  containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}
+>
+  <div class="relative mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
+    <div class="uppercase text-green-500 font-primary text-[120px] lg:text-[200px] z-10">
+      {t('dna.title')}
+    </div>
+
+    <RotateText title={t('dna.creative.title')} description={t('dna.creative.description')} />
+    <div class="relative flex flex-col gap-[130px] lg:gap-0 lg:flex-row w-full justify-between">
+      <RotateText
+        title={t('dna.culture.title')}
+        description={t('dna.culture.description')}
+        rotateClass="rotate-[2deg]"
+      />
+      <RotateText title={t('dna.community.title')} description={t('dna.community.description')} />
+
+      <div class="absolute hidden lg:block top-[-100px] right-1/2">
+        <SquareAsset />
+      </div>
+
+      <div class="absolute hidden lg:block top-[-250px] left-[-100px]">
+        <SpiralAsset />
+      </div>
+    </div>
+    <div class="absolute top-[-100px] right-[-125px] lg:top-[-150px] lg:right-0">
+      <DnaAsset />
+    </div>
+  </div>
+</WidgetWrapper>
