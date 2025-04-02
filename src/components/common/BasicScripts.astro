@@ -129,11 +129,14 @@ import { UI } from 'astrowind:config';
       }
 
       if (window.innerWidth >= 1024) {
-        if (previousScroll > lastKnownScrollPosition && lastKnownScrollPosition > 60 && scrollBottom > 0) {
+        if (previousScroll > lastKnownScrollPosition && lastKnownScrollPosition > 60) {
           header.classList.add('sticky', 'lg:top-0');
           header.classList.remove('lg:absolute');
           divChild.classList.add('!bg-nav');
-        } else {
+        } else if (
+          lastKnownScrollPosition > 0 &&
+          lastKnownScrollPosition < document.documentElement.scrollHeight - window.innerHeight
+        ) {
           header.classList.remove('sticky', 'lg:top-0');
           header.classList.add('lg:absolute');
           divChild.classList.remove('!bg-nav');
