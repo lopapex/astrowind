@@ -1,11 +1,4 @@
 {
-  "content": {
-    "contact": {
-      "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Fusce suscipit libero eget elit. Aenean placerat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu.",
-      "description": "Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.",
-      "button": "Contact us"
-    }
-  },
   "title": "Creative. Culture. Community",
   "followTag": "follow us",
   "video": {
@@ -20,7 +13,7 @@
     "services": "services",
     "team": "team",
     "dna": "our dna",
-    "button": "Let’s create together"
+    "button": "Catch Up & Create"
   },
   "aim": {
     "title": {
@@ -69,6 +62,16 @@
   },
   "footer": {
     "follow": "Follow us",
-    "socials": "Wanna see what's fresh on the set?"
+    "socials": "Wanna see what's fresh on the set?",
+    "panel": {
+      "title": "Or get in touch",
+      "phone": "+420777995528",
+      "email": "contact@3xc.cz"
+    },
+    "copyright": {
+      "reserved": "All right reserved",
+      "gdpr": "GDPR",
+      "year": "CCC 2025"
+    }
   }
 }
