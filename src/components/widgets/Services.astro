@@ -6,28 +6,46 @@ import HighlightText from '../common/HighlightText.astro';
 import ManAsset from '../react/assets/ManAsset';
 import NoteAsset from '../react/assets/NoteAsset';
 import CheckAsset from '../react/assets/CheckAsset';
+import ImageRow from '../common/ImageRow.astro';
 
 type Props = Widget;
 
 const { id, classes = {} } = Astro.props;
 ---
 
-<WidgetWrapper id={id} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}>
-  <div class="mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
-    <HighlightText
-      translateKey="services.message"
-      className="relative max-w-3xl p-5 text-xl lg:text-5xl uppercase font-primary"
-      highlightClassName="font-secondary"
-    >
-      <div class="absolute top-[-100px] right-[100px] lg:top-[-120px] lg:right-[-50px]">
-        <ManAsset />
-      </div>
-      <div class="hidden lg:block lg:absolute lg:top-[200px] lg:left-[45px]">
-        <NoteAsset />
-      </div>
-      <div class="absolute bottom-[-100px] right-[0px] lg:bottom-[-120px] lg:right-[50pxpx]">
-        <CheckAsset />
-      </div>
-    </HighlightText>
-  </div>
-</WidgetWrapper>
+<>
+  <ImageRow
+    colorClass="bg-purple-500"
+    rotateClass="lg:rotate-[-2deg]"
+    images={[...Array(10)].map(() => '/images/images.jpg')}
+  />
+
+  <WidgetWrapper
+    id={id}
+    containerClass={`max-w-6xl mx-auto mt-[200px] lg:mt-[100px] mb-[100px] lg:mb-[300px] ${classes?.container ?? ''}`}
+  >
+    <div class="mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
+      <HighlightText
+        translateKey="services.message"
+        className="relative max-w-3xl p-5 text-xl lg:text-5xl uppercase font-primary"
+        highlightClassName="font-secondary"
+      >
+        <div class="absolute top-[-100px] right-[100px] lg:top-[-120px] lg:right-[-50px]">
+          <ManAsset />
+        </div>
+        <div class="hidden lg:block lg:absolute lg:top-[200px] lg:left-[45px]">
+          <NoteAsset />
+        </div>
+        <div class="absolute bottom-[-100px] right-[0px] lg:bottom-[-120px] lg:right-[50pxpx]">
+          <CheckAsset />
+        </div>
+      </HighlightText>
+    </div>
+  </WidgetWrapper>
+
+  <ImageRow
+    colorClass="bg-blue-500"
+    rotateClass="lg:rotate-[2deg]"
+    images={[...Array(2)].map(() => '/images/images.jpg')}
+  />
+</>

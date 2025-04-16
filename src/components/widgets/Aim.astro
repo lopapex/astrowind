@@ -16,7 +16,11 @@ const roles = t('aim.roles').split(', ');
 const purpleIndexes = [0, 2, 3];
 ---
 
-<WidgetWrapper id={id} wrapperClass="bg-aim" containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}>
+<WidgetWrapper
+  id={id}
+  wrapperClass="bg-aim"
+  containerClass={`max-w-6xl mx-auto mb-[100px] lg:mb-[250px] ${classes?.container ?? ''}`}
+>
   <div class="mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
     <HighlightText
       translateKey="aim.title"

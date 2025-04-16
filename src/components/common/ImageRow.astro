@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import { twMerge } from 'tailwind-merge';
+
+const { colorClass, rotateClass, images } = Astro.props;
+---
+
+<div
+  class={twMerge(
+    'absolute z-50 overflow-x-hidden w-full lg:w-[calc(100%+300px)] transform rotate-0 translate-x-0 lg:translate-x-[-150px] translate-y-[-100px] lg:translate-y-[-250px] pointer-events-none',
+    rotateClass,
+    colorClass
+  )}
+>
+  <div class="flex justify-center items-center whitespace-nowrap gap-2 p-2">
+    {images.map((image) => <Image src={image} alt="Home" width={500} height={280} class="shrink-0" />)}
+  </div>
+</div>
