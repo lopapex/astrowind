@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import i18next, { t } from 'i18next';
-import { NAV_LINKS_MAP, SOCIAL_LINKS } from '~/constants/commons';
+import { SOCIAL_LINKS } from '~/constants/commons';
 
 const { lang } = Astro.params;
 await i18next.changeLanguage(lang);
@@ -9,10 +9,7 @@ await i18next.changeLanguage(lang);
 
 <div class="fixed left-0 bottom-[15%] z-[100] transform -rotate-90 translate-x-[-35px] lg:translate-x-[-65px]">
   <div class="flex justify-center items-center gap-1 p-0 lg:p-2 bg-green-500">
-    <a
-      class="hidden lg:block text-black uppercase text-base hover:underline hover:text-muted"
-      href={NAV_LINKS_MAP.CONTACT.href}>{t('followTag')}</a
-    >
+    <div class="hidden lg:block text-black uppercase text-base">{t('followTag')}</div>
     {
       SOCIAL_LINKS.length ? (
         <ul class="flex ml-[24px] mr-[24px] mt-1 lg:ml-1 lg:mr-0 lg:mt-auto">

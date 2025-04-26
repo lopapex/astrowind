@@ -71,11 +71,15 @@ import ArrowAsset from '../react/assets/ArrowAsset';
           <div
             class="w-full flex flex-col justify-center gap-5 lg:flex-row lg:gap-20 lg:justify-start items-center my-5"
           >
-            <div class="font-primary font-semibold text-white text-3xl">
-              {t('footer.panel.phone')}
+            <div class="font-primary font-semibold text-white text-3xl hover:underline">
+              <a href=`tel:${t('footer.panel.phone')}` class="hover:underline">
+                {t('footer.panel.phone')}
+              </a>
             </div>
-            <div class="font-primary font-semibold text-white text-3xl">
-              {t('footer.panel.email')}
+            <div class="font-primary font-semibold text-white text-3xl hover:underline">
+              <a href=`mailto:${t('footer.panel.email')}` class="hover:underline">
+                {t('footer.panel.email')}
+              </a>
             </div>
           </div>
         </div>

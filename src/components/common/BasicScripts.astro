@@ -119,7 +119,6 @@ import { UI } from 'astrowind:config';
 
     function applyHeaderStylesOnScroll() {
       const header = document.querySelector('#header[data-aw-sticky-header]');
-      const divChild = header.children[0];
 
       if (!header) return;
       if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
@@ -129,17 +128,15 @@ import { UI } from 'astrowind:config';
       }
 
       if (window.innerWidth >= 1024) {
-        if (previousScroll > lastKnownScrollPosition && lastKnownScrollPosition > 60) {
-          header.classList.add('sticky', 'lg:top-0');
-          header.classList.remove('lg:absolute');
-          divChild.classList.add('!bg-nav');
+        if (previousScroll > lastKnownScrollPosition) {
+          header.classList.remove('lg:invisible');
+          header.classList.add('lg:visible');
         } else if (
           lastKnownScrollPosition > 0 &&
           lastKnownScrollPosition < document.documentElement.scrollHeight - window.innerHeight
         ) {
-          header.classList.remove('sticky', 'lg:top-0');
-          header.classList.add('lg:absolute');
-          divChild.classList.remove('!bg-nav');
+          header.classList.remove('lg:visible');
+          header.classList.add('lg:invisible');
         }
       }
       ticking = false;
