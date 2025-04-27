@@ -23,7 +23,7 @@ const TeamContainer = ({ team, rolesLabel, skillsLabel }) => {
       }}
     >
       {team.map((member, index) => (
-        <SwiperSlide key={index} className="cursor-pointer">
+        <SwiperSlide key={index} className="cursor-pointer mt-8">
           <motion.div
             className="relative flex flex-col justify-start"
             whileHover="animate"

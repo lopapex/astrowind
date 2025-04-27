@@ -69,7 +69,7 @@ const ReferencesContainer = ({ references, videoButton }) => {
         }}
       >
         {references.map((reference, index) => (
-          <SwiperSlide key={index} className={`cursor-pointer ${index % 2 === 1 ? 'lg:pt-12' : ''}`}>
+          <SwiperSlide key={index} className={`cursor-pointer pt-8 ${index % 2 === 1 ? 'lg:pt-24' : 'lg:pt-8'}`}>
             <motion.div
               className="relative flex flex-col justify-start"
               whileHover="animate"
