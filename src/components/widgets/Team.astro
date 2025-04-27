@@ -11,8 +11,6 @@ export const prerender = false;
 const { lang } = Astro.params;
 const team = await fetchTeamData(lang);
 
-const formattedTeam = team;
-
 interface Props extends Widget {
   title?: string;
   subtitle?: string;
@@ -28,21 +26,16 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
   id={id}
   isDark={isDark}
   wrapperClass="bg-orange-500 py-[100px]"
-  containerClass={`max-w-6xl mx-auto mt-[100px] lg:mt-[0px] ${classes?.container ?? ''}`}
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
   bg={bg}
 >
   <div class="mx-auto text-center my-6 lg:p-6 flex justify-center items-center flex-col">
-    <div class="font-primary uppercase text-xl mb-[52px]">{t('team.title')}</div>
+    <div class="font-primary uppercase text-2xl mb-[52px]">{t('team.title')}</div>
     <HighlightText
       translateKey="team.message"
-      className="mb-[72px] text-3xl font-primary max-w-xl"
+      className="mb-[72px] text-4xl font-primary max-w-xl"
       highlightClassName="font-secondary"
     />
-    <TeamContainer
-      client:idle
-      team={[...formattedTeam, ...formattedTeam]}
-      skillsLabel={t('team.skills')}
-      rolesLabel={t('team.roles')}
-    />
+    <TeamContainer client:idle team={[...team, ...team]} skillsLabel={t('team.skills')} rolesLabel={t('team.roles')} />
   </div>
 </WidgetWrapper>

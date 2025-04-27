@@ -1,0 +1,50 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { CallToAction, Widget } from '~/types';
+import { t } from 'i18next';
+import { fetchReferencesData } from '~/utils/api';
+import { NAV_LINKS_MAP } from '~/constants/commons';
+import ReferencesContainer from '../react/ReferencesContainer';
+
+export const prerender = false;
+
+const { lang } = Astro.params;
+const references = await fetchReferencesData(lang);
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  callToAction?: CallToAction;
+  actions?: string | CallToAction[];
+}
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  roundBottomClass="bg-orange-500"
+  wrapperClass="bg-blue-500 pb-[100px]"
+  containerClass={`max-w-6xl mx-auto !pt-[100px] mt-[100px] lg:mt-[0px] ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <div class="mx-auto text-start my-6 lg:p-6 flex justify-center items-center flex-col">
+    <div class="w-full text-start mb-[52px]">
+      <div class="font-primary capitalize text-6xl text-white">{t('references.title')}</div>
+    </div>
+
+    <ReferencesContainer client:idle references={references} videoButton={t('references.video')} />
+
+    <div class="flex flex-col items-center justify-center gap-5 mt-[150px]">
+      <div class="font-primary capitalize text-5xl text-orange-500">{t('references.message.title')}</div>
+      <div class="font-delight font-semibold capitalize text-2xl text-white max-w-xl text-center">
+        {t('references.message.description')}
+      </div>
+      <div class="my-2 mx-4 block">
+        <a class="btn" href={NAV_LINKS_MAP.CONTACT.href}>{t('references.contact')}</a>
+      </div>
+    </div>
+  </div>
+</WidgetWrapper>

@@ -11,6 +11,7 @@
   "navigation": {
     "about": "about",
     "services": "services",
+    "references": "references",
     "team": "team",
     "dna": "our dna",
     "button": "Catch Up & Create"
@@ -34,6 +35,15 @@
       "highlightIndexes": "0, 6, 8, 18, 24, 34",
       "newLineIndexes": "3, 5, 11, 15, 19, 23, 25, 29, 33, 37, 41"
     }
+  },
+  "references": {
+    "title": "References",
+    "message": {
+      "title": "Feel inspired?",
+      "description": "Let's chat, grab a coffee or exchange postcards and then do cool things together."
+    },
+    "contact": "contact us",
+    "video": "Watch video"
   },
   "team": {
     "title": "Team",

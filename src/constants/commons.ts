@@ -11,6 +11,7 @@ export const NAV_LINKS_MAP = {
   HOME: { text: undefined, href: '#home' },
   ABOUT: { text: 'navigation.about', href: '#about' },
   SERVICES: { text: 'navigation.services', href: '#services' },
+  REFERENCES: { text: 'navigation.references', href: '#references' },
   TEAM: { text: 'navigation.team', href: '#team' },
   DNA: { text: 'navigation.dna', href: '#dna' },
   CONTACT: { text: undefined, href: '#contact' },

@@ -6,10 +6,10 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 
-const TeamCarousel = ({ team, rolesLabel, skillsLabel }) => {
+const TeamContainer = ({ team, rolesLabel, skillsLabel }) => {
   return (
     <Swiper
-      className="max-w-[50%] lg:max-w-[1092px]"
+      className="max-w-[70%] lg:max-w-[1092px]"
       modules={[Pagination, A11y]}
       loop
       pagination={{ clickable: true }}
@@ -47,7 +47,7 @@ const TeamCarousel = ({ team, rolesLabel, skillsLabel }) => {
 
             <div className="text-left p-0 z-10">
               <div className="flex justify-center translate-y-[-52px]">
-                <div className="inline-block bg-green-500 px-3 py-1 font-semibold text-xl">{member.nickname}</div>
+                <div className="inline-block bg-green-500 px-3 py-1 font-semibold text-2xl">{member.nickname}</div>
               </div>
               <div className="mt-[-12px] font-medium uppercase text-lg lg:text-2xl">{member.name}</div>
               <div className="text-base mt-3">
@@ -71,4 +71,4 @@ const TeamCarousel = ({ team, rolesLabel, skillsLabel }) => {
   );
 };
 
-export default TeamCarousel;
+export default TeamContainer;
