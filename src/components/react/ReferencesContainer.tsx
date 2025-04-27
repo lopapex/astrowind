@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper/modules';
+import { motion } from 'framer-motion';
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -69,10 +70,24 @@ const ReferencesContainer = ({ references, videoButton }) => {
       >
         {references.map((reference, index) => (
           <SwiperSlide key={index} className={`cursor-pointer ${index % 2 === 1 ? 'lg:pt-12' : ''}`}>
-            <div className="relative flex flex-col justify-start">
-              <div className="flex items-center justify-center overflow-hidden w-full aspect-[9/16]">
+            <motion.div
+              className="relative flex flex-col justify-start"
+              whileHover="animate"
+              variants={{
+                animate: { scale: 0.95 },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="flex items-center justify-center overflow-hidden w-full aspect-[9/16]"
+                variants={{
+                  initial: { scale: 1 },
+                  animate: { scale: 0.9, translateY: '-7.5%' },
+                }}
+                transition={{ duration: 0.3 }}
+              >
                 <img src={reference.thumbnail} alt={reference.name} className="object-cover w-full h-full" />
-              </div>
+              </motion.div>
 
               <div className="text-2xl font-secondary mt-3 text-white">{reference.name}</div>
 
@@ -81,7 +96,7 @@ const ReferencesContainer = ({ references, videoButton }) => {
                   {videoButton}
                 </button>
               </div>
-            </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>

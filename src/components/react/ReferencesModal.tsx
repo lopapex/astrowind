@@ -62,12 +62,18 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
               <ReactPlayer
                 url={reference.video}
                 controls={true}
+                light={true}
                 width="100%"
                 height="100%"
                 playing={isPlaying}
                 onStart={() => setIsPlaying(true)}
                 onPlay={() => setIsPlaying(true)}
                 onClickPreview={() => setIsPlaying(true)}
+                playIcon={
+                  <button className="absolute btn-icon p-4 rounded-full" onClick={() => setIsPlaying(true)}>
+                    <PlayAsset />
+                  </button>
+                }
                 fallback={
                   <img
                     src={reference.thumbnail}
@@ -77,11 +83,6 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
                 }
               />
             </div>
-            {!isPlaying && (
-              <button className="group absolute btn-icon p-4 rounded-full" onClick={() => setIsPlaying(true)}>
-                <PlayAsset />
-              </button>
-            )}
           </div>
           <div className="text-base text-white mt-4 max-w-[1280px]">{reference.description}</div>
         </div>
