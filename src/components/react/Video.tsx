@@ -12,8 +12,15 @@ type VideoProps = {
 
 const Video = ({ id, noSupport, community, creative, culture, discover }: VideoProps) => {
   return (
-    <div className="relative mt-[-81px]">
-      <video id={id} className="w-full h-[100vh] bg-black" loop={true} muted={true} autoPlay={true} playsInline={true}>
+    <div className="relative mt-0 lg:mt-[-81px]">
+      <video
+        id={id}
+        className="w-full h-auto aspect-[16/9] lg:aspect-auto lg:h-[100vh] bg-black"
+        loop={true}
+        muted={true}
+        autoPlay={true}
+        playsInline={true}
+      >
         <source src={bgVideo} type="video/mp4" />
         {noSupport}
       </video>

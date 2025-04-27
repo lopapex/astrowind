@@ -19,6 +19,7 @@ type ReferenceModalProps = {
 
 const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
+
   const closeDialog = () => {
     onClose();
     setIsPlaying(false);
@@ -58,7 +59,7 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
             </button>
           </div>
           <div className="relative flex items-center justify-center overflow-hidden w-full">
-            <div className={twMerge('object-cover w-full h-full lg:w-[1280px] lg:h-[700px]')}>
+            <div className={twMerge('object-cover w-full lg:w-[1280px] aspect-[16/9]')}>
               <ReactPlayer
                 url={reference.video}
                 controls={true}
@@ -73,13 +74,6 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
                   <button className="absolute group btn-icon p-4 rounded-full" onClick={() => setIsPlaying(true)}>
                     <PlayAsset />
                   </button>
-                }
-                fallback={
-                  <img
-                    src={reference.thumbnail}
-                    alt={reference.name}
-                    className="animate-pulse object-cover w-full h-full"
-                  />
                 }
               />
             </div>
