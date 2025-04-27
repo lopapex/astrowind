@@ -5,7 +5,7 @@ const CrossAsset = () => (
     viewBox="0 0 30 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="stroke-black pt-1"
+    className="stroke-black group-hover:stroke-orange-500 transition-all duration-300 pt-1"
   >
     {/* First Part */}
     <path

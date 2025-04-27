@@ -53,7 +53,7 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
         <div className="flex flex-col items-center rounded-lg">
           <div className="flex justify-between items-center w-full mb-4">
             <h2 className="text-2xl mb-2 text-white">{reference.name}</h2>
-            <button className="btn-icon" onClick={closeDialog}>
+            <button className="btn-icon group" onClick={closeDialog}>
               <CrossAsset />
             </button>
           </div>
@@ -70,7 +70,7 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
                 onPlay={() => setIsPlaying(true)}
                 onClickPreview={() => setIsPlaying(true)}
                 playIcon={
-                  <button className="absolute btn-icon p-4 rounded-full" onClick={() => setIsPlaying(true)}>
+                  <button className="absolute group btn-icon p-4 rounded-full" onClick={() => setIsPlaying(true)}>
                     <PlayAsset />
                   </button>
                 }
