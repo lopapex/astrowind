@@ -31,7 +31,7 @@ const Video = ({ id, noSupport, community, creative, culture, discover }: VideoP
           <div className="font-secondary">{community}</div>
         </div>
       </div>
-      <div className="absolute bottom-[40px] left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute hidden lg:block bottom-[40px] left-1/2 transform -translate-x-1/2 z-10">
         <div className="flex flex-col justify-center items-center gap-2">
           <VideoAsset />
           <div className="text-orange-500">{discover}</div>

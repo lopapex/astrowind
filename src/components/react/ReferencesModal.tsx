@@ -48,6 +48,30 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
     };
   }, []);
 
+  useEffect(() => {
+    if (dialogRef.current?.open) {
+      // When dialog is open -> disable scrolling
+      document.body.style.overflow = 'hidden';
+    }
+
+    const observer = new MutationObserver(() => {
+      if (dialogRef.current?.open) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    if (dialogRef.current) {
+      observer.observe(dialogRef.current, { attributes: true, attributeFilter: ['open'] });
+    }
+
+    return () => {
+      observer.disconnect();
+      document.body.style.overflow = '';
+    };
+  }, [dialogRef]);
+
   return (
     <dialog ref={dialogRef} className="rounded-lg bg-blue-500 p-6 backdrop:bg-black/50">
       {reference && (

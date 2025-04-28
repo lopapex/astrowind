@@ -20,6 +20,30 @@
     src: url(/fonts/Delight-SemiBold.woff2) format('woff2');
     font-weight: 600;
   }
+
+  @font-face {
+    font-family: 'Delight';
+    src: url(/fonts/Delight-Regular.woff2) format('woff2');
+    font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'IvyPrestoHeadline';
+    src: url(/fonts/IvyPrestoHeadline-Bold.woff2) format('woff2');
+    font-weight: 800;
+  }
+
+  @font-face {
+    font-family: 'IvyPrestoHeadline';
+    src: url(/fonts/IvyPrestoHeadline-SemiBold.woff2) format('woff2');
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: 'IvyPrestoHeadline';
+    src: url(/fonts/IvyPrestoHeadline-Regular.otf) format('woff2');
+    font-weight: 400;
+  }
 }
 
 @layer components {
@@ -53,7 +77,8 @@
   }
 
   .font-secondary {
-    @apply font-raleway font-normal;
+    @apply font-normal;
+    font-family: 'IvyPrestoHeadline', sans-serif;
   }
 
   .font-delight {
