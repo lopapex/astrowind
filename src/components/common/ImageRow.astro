@@ -13,6 +13,6 @@ const { colorClass, rotateClass, images } = Astro.props;
   )}
 >
   <div class="flex justify-center items-center whitespace-nowrap gap-2 p-2">
-    {images.map((image) => <Image src={image} alt="Home" width={500} height={280} class="shrink-0" />)}
+    {images.map((image) => <Image src={image} alt="Home" width={500} height={280} class="shrink-0 aspect-[16/9]" />)}
   </div>
 </div>

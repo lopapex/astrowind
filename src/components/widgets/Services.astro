@@ -13,11 +13,20 @@ type Props = Widget;
 const { id, classes = {} } = Astro.props;
 ---
 
-<>
+<div class="!overflow-hidden">
   <ImageRow
     colorClass="bg-purple-500"
     rotateClass="lg:rotate-[-2deg]"
-    images={[...Array(10)].map(() => '/images/images.jpg')}
+    images={[
+      '/images/topRow/1.jpg',
+      '/images/topRow/2.jpg',
+      '/images/topRow/3.jpeg',
+      '/images/topRow/4.jpg',
+      '/images/topRow/5.jpg',
+      '/images/topRow/6.JPG',
+      '/images/topRow/7.jpg',
+      '/images/topRow/8.jpg',
+    ]}
   />
 
   <WidgetWrapper
@@ -46,6 +55,15 @@ const { id, classes = {} } = Astro.props;
   <ImageRow
     colorClass="bg-orange-500"
     rotateClass="lg:rotate-[2deg]"
-    images={[...Array(2)].map(() => '/images/images.jpg')}
+    images={[
+      '/images/bottomRow/1.jpg',
+      '/images/bottomRow/2.jpg',
+      '/images/bottomRow/3.jpg',
+      '/images/bottomRow/4.png',
+      '/images/bottomRow/5.jpg',
+      '/images/bottomRow/6.jpg',
+      '/images/bottomRow/7.jpeg',
+      '/images/bottomRow/8.jpg',
+    ]}
   />
-</>
+</div>
