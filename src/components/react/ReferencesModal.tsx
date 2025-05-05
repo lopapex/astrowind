@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CrossAsset from './assets/CrossAsset';
 import PlayAsset from './assets/PlayAsset';
 import ReactPlayer from 'react-player';
 import { twMerge } from 'tailwind-merge';
+import Modal from './Modal';
 
-type Reference = {
+export type Reference = {
   name: string;
   video: string;
   thumbnail: string;
@@ -28,52 +29,8 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
     }
   };
 
-  useEffect(() => {
-    const dialog = dialogRef.current;
-
-    const handleOutsideClick = (e: MouseEvent) => {
-      if (dialog && e.target === dialog) {
-        closeDialog();
-      }
-    };
-
-    if (dialog) {
-      dialog.addEventListener('click', handleOutsideClick);
-    }
-
-    return () => {
-      if (dialog) {
-        dialog.removeEventListener('click', handleOutsideClick);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (dialogRef.current?.open) {
-      // When dialog is open -> disable scrolling
-      document.body.style.overflow = 'hidden';
-    }
-
-    const observer = new MutationObserver(() => {
-      if (dialogRef.current?.open) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
-    });
-
-    if (dialogRef.current) {
-      observer.observe(dialogRef.current, { attributes: true, attributeFilter: ['open'] });
-    }
-
-    return () => {
-      observer.disconnect();
-      document.body.style.overflow = '';
-    };
-  }, [dialogRef]);
-
   return (
-    <dialog ref={dialogRef} className="rounded-lg bg-blue-500 p-6 backdrop:bg-black/50">
+    <Modal dialogRef={dialogRef} className="bg-blue-500" onClose={closeDialog}>
       {reference && (
         <div className="flex flex-col items-center rounded-lg">
           <div className="flex justify-between items-center w-full mb-4">
@@ -105,7 +62,7 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
           <div className="text-base text-white mt-4 max-w-[1280px]">{reference.description}</div>
         </div>
       )}
-    </dialog>
+    </Modal>
   );
 };
 

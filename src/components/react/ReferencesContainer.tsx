@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper/modules';
 import { motion } from 'framer-motion';
@@ -6,15 +6,8 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
-import ReferenceModal from './ReferencesModal';
+import ReferenceModal, { type Reference } from './ReferencesModal';
 import ReferenceAsset from './assets/ReferenceAsset';
-
-type Reference = {
-  name: string;
-  video: string;
-  thumbnail: string;
-  description: string;
-};
 
 const ReferencesContainer = ({ references, videoButton }) => {
   const [selectedReference, setSelectedReference] = useState<Reference | null>(null);
@@ -26,32 +19,6 @@ const ReferencesContainer = ({ references, videoButton }) => {
       dialogRef.current.showModal();
     }
   };
-
-  const closeDialog = () => {
-    if (dialogRef.current) {
-      dialogRef.current.close();
-    }
-  };
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-
-    const handleOutsideClick = (e: MouseEvent) => {
-      if (dialog && e.target === dialog) {
-        closeDialog();
-      }
-    };
-
-    if (dialog) {
-      dialog.addEventListener('click', handleOutsideClick);
-    }
-
-    return () => {
-      if (dialog) {
-        dialog.removeEventListener('click', handleOutsideClick);
-      }
-    };
-  }, []);
 
   return (
     <>

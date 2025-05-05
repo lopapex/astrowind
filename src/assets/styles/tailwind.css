@@ -59,16 +59,8 @@
     @apply bg-orange-500 hover:bg-white ease-in duration-200 cursor-pointer rounded;
   }
 
-  .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
-  }
-
   .btn-secondary {
-    @apply btn;
-  }
-
-  .btn-tertiary {
-    @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+    @apply btn text-black border-black hover:border-green-500 hover:bg-green-500;
   }
 
   .font-primary {

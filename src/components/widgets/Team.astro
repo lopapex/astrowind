@@ -36,6 +36,6 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
       className="mb-[72px] text-4xl font-primary max-w-xl"
       highlightClassName="font-secondary"
     />
-    <TeamContainer client:idle team={[...team, ...team]} skillsLabel={t('team.skills')} rolesLabel={t('team.roles')} />
+    <TeamContainer client:idle team={[...team, ...team]} moreButton={t('team.more')} />
   </div>
 </WidgetWrapper>

@@ -16,9 +16,10 @@ export async function fetchTeamData(lang = 'en') {
       id: `${index} - ${member.Nickname}`,
       nickname: member.Nickname || '',
       name: member.Name || '',
-      roles: member.Roles ? member.Roles.split(', ') : [],
-      skills: member.Skills ? member.Skills.split(', ') : [],
       image: member.Image || '',
+      job: member.Job || '',
+      description: member.Description || '',
+      instagram: member.Instagram || '',
     }));
   } catch (error) {
     console.error('Error fetching team data:', error);
@@ -35,17 +36,21 @@ export async function fetchReferencesData(lang = 'en') {
       throw new Error('Invalid API response format');
     }
 
-    return data.map((member, index) => {
-      const videoUrl = member.Video || '';
+    return data.map((reference, index) => {
+      const videoUrl = reference.Video || '';
       const videoIdMatch = videoUrl.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
       const videoId = videoIdMatch ? videoIdMatch[1] : '';
 
       return {
-        id: `${index} - ${member.Name}`,
-        name: member.Name || '',
+        id: `${index} - ${reference.Name}`,
+        name: reference.Name || '',
         video: videoUrl,
-        thumbnail: videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '',
-        description: member.Description || '',
+        thumbnail: reference.Image
+          ? reference.Image
+          : videoId
+            ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+            : '',
+        description: reference.Description || '',
       };
     });
   } catch (error) {
