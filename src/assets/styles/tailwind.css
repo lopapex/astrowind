@@ -63,6 +63,14 @@
     @apply btn text-black border-black hover:border-green-500 hover:bg-green-500;
   }
 
+  .btn-header {
+    @apply btn text-orange-500 border-orange-500 hover:text-white;
+  }
+
+  .soc-icon {
+    @apply text-black hover:text-white transition ease-in duration-200;
+  }
+
   .font-primary {
     @apply font-extrabold;
     font-family: 'Delight', sans-serif;
@@ -75,6 +83,10 @@
 
   .font-delight {
     font-family: 'Delight', sans-serif;
+  }
+
+  .font-ivypresto {
+    font-family: 'IvyPrestoHeadline', sans-serif;
   }
 
   .dna-description {

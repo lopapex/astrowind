@@ -62,9 +62,11 @@ export default {
           800: '#130442',
           900: '#0A0221',
         },
-        aim: '#07070a',
         dna: '#100b17',
         nav: 'rgba(0, 0, 0, 0.1)',
+      },
+      backgroundImage: {
+        aim: 'linear-gradient(to bottom, #0B0B0B, #13131D)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],

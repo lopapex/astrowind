@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import TeamModal, { type Member } from './TeamModal';
 import { useRef, useState } from 'react';
 
-const TeamContainer = ({ team, moreButton }) => {
+const TeamContainer = ({ team, moreButton, follow }) => {
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -45,7 +45,7 @@ const TeamContainer = ({ team, moreButton }) => {
               }}
               transition={{ duration: 0.3 }}
             >
-              <div className="flex items-center justify-center overflow-hidden">
+              <div className="flex items-center justify-center overflow-hidden" onClick={() => openDialog(member)}>
                 <motion.img
                   src={member.image}
                   alt={member.name}
@@ -62,7 +62,7 @@ const TeamContainer = ({ team, moreButton }) => {
                 <div className="flex justify-center translate-y-[-26px]">
                   <div className="inline-block bg-green-500 px-3 py-1 font-semibold text-2xl">{member.nickname}</div>
                 </div>
-                <div className="mt-[-12px] font-medium uppercase text-lg lg:text-2xl">{member.name}</div>
+                <div className="mt-[-12px] font-medium font-secondary uppercase text-lg lg:text-2xl">{member.name}</div>
                 <div className="font-medium uppercase text-base lg:text-xl">{member.job}</div>
 
                 <div className="my-2 block">
@@ -75,7 +75,12 @@ const TeamContainer = ({ team, moreButton }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <TeamModal dialogRef={dialogRef} member={selectedMember} onClose={() => setSelectedMember(null)} />
+      <TeamModal
+        dialogRef={dialogRef}
+        member={selectedMember}
+        follow={follow}
+        onClose={() => setSelectedMember(null)}
+      />
     </>
   );
 };

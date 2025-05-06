@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import Logo from '~/components/Logo.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import Button from '~/components/ui/Button.astro';
 
@@ -8,6 +7,7 @@ import { trimSlash, getAsset } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
 import i18next, { t } from 'i18next';
 import { NAV_LINKS, NAV_LINKS_MAP } from '~/constants/commons';
+import LogoAsset from '../react/assets/LogoAsset';
 
 interface Link {
   text?: string;
@@ -67,7 +67,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between ml-5']}>
       <a class="flex items-center" href={NAV_LINKS_MAP.HOME.href}>
-        <Logo />
+        <LogoAsset />
       </a>
       <div class="flex items-center lg:hidden">
         <ToggleMenu />
@@ -85,7 +85,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             <li>
               <a
                 class:list={[
-                  'hover:underline dark:hover:text-white text-orange-500 px-4 py-1 flex items-center whitespace-nowrap uppercase',
+                  'hover:underline text-base dark:hover:text-white text-orange-500 px-4 py-1 flex items-center whitespace-nowrap uppercase',
                   { 'aw-link-active': href === currentPath },
                 ]}
                 href={href}
@@ -96,7 +96,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           ))
         }
         <li class="my-2 mx-4 block lg:hidden">
-          <a class="btn" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
+          <a class="btn-header" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
         </li>
       </ul>
     </nav>
@@ -131,7 +131,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             ''
           )
         }
-        <a class="btn hidden lg:block" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
+        <a class="btn-header hidden lg:block" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
       </div>
     </div>
   </div>

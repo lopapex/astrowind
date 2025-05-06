@@ -34,13 +34,13 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
       {reference && (
         <div className="flex flex-col items-center rounded-lg">
           <div className="flex justify-between items-center w-full mb-4">
-            <h2 className="text-2xl mb-2 text-white">{reference.name}</h2>
+            <h2 className="text-2xl font-secondary mb-2 text-white">{reference.name}</h2>
             <button className="btn-icon group" onClick={closeDialog}>
               <CrossAsset />
             </button>
           </div>
           <div className="relative flex items-center justify-center overflow-hidden w-full">
-            <div className={twMerge('object-cover w-full lg:w-[1280px] aspect-[16/9]')}>
+            <div className={twMerge('object-cover w-full lg:w-[960px] aspect-[16/9]')}>
               <ReactPlayer
                 url={reference.video}
                 controls={true}
@@ -59,7 +59,7 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
               />
             </div>
           </div>
-          <div className="text-base text-white mt-4 max-w-[1280px]">{reference.description}</div>
+          <div className="text-base text-white mt-4 max-w-[960px]">{reference.description}</div>
         </div>
       )}
     </Modal>

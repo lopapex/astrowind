@@ -52,6 +52,7 @@ const ReferencesContainer = ({ references, videoButton }) => {
                   animate: { scale: 0.9, translateY: '-7.5%' },
                 }}
                 transition={{ duration: 0.3 }}
+                onClick={() => openDialog(reference)}
               >
                 <img src={reference.thumbnail} alt={reference.name} className="object-cover w-full h-full" />
               </motion.div>
