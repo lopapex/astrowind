@@ -39,7 +39,7 @@ const TeamModal = ({ member, dialogRef, onClose, follow }: TeamModalProps) => {
                 <div className="text-lg font-delight font-semibold my-5">{member.job}</div>
                 <div className="text-base font-delight font-medium">{member.description}</div>
               </div>
-              <div className="flex text-right">
+              <div className="flex text-right mt-5">
                 <div className="flex justify center items-center gap-4 bg-green-500 px-4 py-1">
                   <div className="text-base uppercase font-bold">{follow}</div>
                   <a

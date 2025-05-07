@@ -5,7 +5,7 @@ const LogoAsset = () => (
     viewBox="0 0 39 49"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="text-orange-500 hover:text-white transition ease-in duration-200"
+    className="text-orange-500 lg:hover:text-white lg:transition lg:ease-in lg:duration-200"
   >
     <g clipPath="url(#clip0_4179_528)">
       <path

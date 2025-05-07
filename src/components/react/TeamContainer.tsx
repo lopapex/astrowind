@@ -62,8 +62,8 @@ const TeamContainer = ({ team, moreButton, follow }) => {
                 <div className="flex justify-center translate-y-[-26px]">
                   <div className="inline-block bg-green-500 px-3 py-1 font-semibold text-2xl">{member.nickname}</div>
                 </div>
-                <div className="mt-[-12px] font-medium font-secondary uppercase text-lg lg:text-2xl">{member.name}</div>
-                <div className="font-medium uppercase text-base lg:text-xl">{member.job}</div>
+                <div className="mt-[-12px] text-2xl font-secondary">{member.name}</div>
+                <div className="text-lg font-delight font-semibold">{member.job}</div>
 
                 <div className="my-2 block">
                   <button className="btn-secondary" onClick={() => openDialog(member)}>
