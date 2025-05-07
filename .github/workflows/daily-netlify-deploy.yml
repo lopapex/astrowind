@@ -1,0 +1,17 @@
+name: Daily Netlify Redeploy
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Every day at midnight UTC
+  workflow_dispatch: # Optional: allows manual triggering
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Trigger Netlify build hook
+        run: curl -X POST -d '{}' https://api.netlify.com/build_hooks/681b8fec5d57009405f7175b
