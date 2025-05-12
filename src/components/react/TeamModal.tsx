@@ -31,7 +31,7 @@ const TeamModal = ({ member, dialogRef, onClose, follow }: TeamModalProps) => {
       {member && (
         <div className="relative flex flex-col items-center rounded-lg">
           <div className="relative flex overflow-hidden w-full lg:w-[960px] gap-16">
-            <img src={member.image} alt={member.name} className="max-w-[400px] hidden lg:block" />
+            <img src={member.image} alt={member.name} className="w-[400px] h-[600px] hidden lg:block" />
             <div className="flex flex-col justify-between">
               <div className="flex flex-col justify-start items-start text-left">
                 <div className="text-2xl font-secondary mt-1">{member.name}</div>

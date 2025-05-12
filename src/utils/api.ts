@@ -16,7 +16,7 @@ export async function fetchTeamData(lang = 'en') {
       id: `${index} - ${member.Nickname}`,
       nickname: member.Nickname || '',
       name: member.Name || '',
-      image: member.Image || '',
+      image: member.Image || '/images/placeholder.jpg',
       job: member.Job || '',
       description: member.Description || '',
       instagram: member.Instagram || '',
@@ -49,7 +49,7 @@ export async function fetchReferencesData(lang = 'en') {
           ? reference.Image
           : videoId
             ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
-            : '',
+            : '/images/placeholder.jpg',
         description: reference.Description || '',
       };
     });
