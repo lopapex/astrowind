@@ -13,6 +13,8 @@ const ReferencesContainer = ({ references, videoButton }) => {
   const [selectedReference, setSelectedReference] = useState<Reference | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const sliderRef = useRef<SwiperRef | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   const openDialog = (reference) => {
     setSelectedReference(reference);
@@ -23,7 +25,12 @@ const ReferencesContainer = ({ references, videoButton }) => {
 
   return (
     <>
-      <SwiperWrapper sliderRef={sliderRef} className="stroke-white hover:stroke-orange-500">
+      <SwiperWrapper
+        sliderRef={sliderRef}
+        isBeginning={isBeginning}
+        isEnd={isEnd}
+        className="stroke-white hover:stroke-orange-500"
+      >
         <Swiper
           ref={sliderRef}
           className="max-w-[70%] lg:max-w-[1092px]"
@@ -31,6 +38,10 @@ const ReferencesContainer = ({ references, videoButton }) => {
           pagination={{ clickable: true }}
           spaceBetween={20}
           slidesPerView={1}
+          onSlideChange={(swiper) => {
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+          }}
           breakpoints={{
             768: {
               slidesPerView: references.length < 3 ? references.length : 3,

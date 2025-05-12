@@ -12,6 +12,8 @@ const TeamContainer = ({ team, moreButton, follow }) => {
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const sliderRef = useRef<SwiperRef | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   const openDialog = (member) => {
     setSelectedMember(member);
@@ -22,7 +24,12 @@ const TeamContainer = ({ team, moreButton, follow }) => {
 
   return (
     <>
-      <SwiperWrapper sliderRef={sliderRef} className="stroke-green-500 hover:stroke-white">
+      <SwiperWrapper
+        sliderRef={sliderRef}
+        isBeginning={isBeginning}
+        isEnd={isEnd}
+        className="stroke-green-500 hover:stroke-white"
+      >
         <Swiper
           ref={sliderRef}
           className="max-w-[70%] lg:max-w-[1092px]"
@@ -30,6 +37,10 @@ const TeamContainer = ({ team, moreButton, follow }) => {
           pagination={{ clickable: true }}
           spaceBetween={20}
           slidesPerView={1}
+          onSlideChange={(swiper) => {
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+          }}
           breakpoints={{
             768: {
               slidesPerView: team.length < 3 ? team.length : 3,
