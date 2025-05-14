@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   @font-face {
     font-family: 'Delight';
     src: url(/fonts/Delight-ExtraBold.woff2) format('woff2');
@@ -140,26 +145,4 @@
 
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
-}
-
-.prose h2 {
-  font-size: 1rem;
-  line-height: 1rem;
-  font-weight: 600;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
-
-.prose a {
-  color: var(--aw-color-text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition:
-    color 0.2s ease,
-    text-decoration 0.2s ease;
-}
-
-.prose a:hover {
-  color: var(--aw-color-primary);
-  text-decoration: underline;
 }

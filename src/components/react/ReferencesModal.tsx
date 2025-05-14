@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import CrossAsset from './assets/CrossAsset';
 import PlayAsset from './assets/PlayAsset';
 import ReactPlayer from 'react-player';
@@ -18,6 +18,13 @@ type ReferenceModalProps = {
   onClose: () => void;
 };
 
+const isIOS = () => {
+  return (
+    typeof navigator !== 'undefined' &&
+    /iPhone|iPad|iPod/.test(navigator.userAgent)
+  );
+};
+
 const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -28,6 +35,8 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
       dialogRef.current.close();
     }
   };
+
+  const isIOSDevice = useMemo(() => isIOS(), []);
 
   return (
     <Modal dialogRef={dialogRef} className="bg-blue-500" onClose={closeDialog}>
@@ -44,7 +53,7 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
               <ReactPlayer
                 url={reference.video}
                 controls={true}
-                light={true}
+                light={!isIOSDevice ? reference.thumbnail : false} // light jen mimo iOS
                 width="100%"
                 height="100%"
                 playing={isPlaying}
@@ -52,9 +61,11 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
                 onPlay={() => setIsPlaying(true)}
                 onClickPreview={() => setIsPlaying(true)}
                 playIcon={
-                  <button className="absolute group btn-icon p-4 rounded-full" onClick={() => setIsPlaying(true)}>
-                    <PlayAsset />
-                  </button>
+                  !isIOSDevice ? (
+                    <button className="absolute group btn-icon p-4 rounded-full" onClick={() => setIsPlaying(true)}>
+                      <PlayAsset />
+                    </button>
+                  ) : undefined
                 }
               />
             </div>
