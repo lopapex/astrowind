@@ -19,10 +19,7 @@ type ReferenceModalProps = {
 };
 
 const isIOS = () => {
-  return (
-    typeof navigator !== 'undefined' &&
-    /iPhone|iPad|iPod/.test(navigator.userAgent)
-  );
+  return typeof navigator !== 'undefined' && /iPhone|iPad|iPod/.test(navigator.userAgent);
 };
 
 const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) => {
