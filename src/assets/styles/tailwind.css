@@ -6,6 +6,7 @@
   html,
   body {
     overflow-x: hidden;
+    overscroll-behavior-x: none;
   }
 
   @font-face {
