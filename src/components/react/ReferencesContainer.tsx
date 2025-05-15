@@ -33,7 +33,7 @@ const ReferencesContainer = ({ references, videoButton }) => {
       >
         <Swiper
           ref={sliderRef}
-          className="max-w-[70%] lg:max-w-[1092px]"
+          className="max-w-[70%] lg:max-w-full"
           modules={[Pagination, A11y]}
           pagination={{ clickable: true }}
           spaceBetween={20}
