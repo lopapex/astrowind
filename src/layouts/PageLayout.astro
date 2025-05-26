@@ -16,9 +16,9 @@ const { metadata } = Astro.props;
 <Layout metadata={metadata}>
   <div id="home"></div>
   <slot name="header">
-    <Header isSticky position="center" />
+    <Header position="center" />
   </slot>
-  <main>
+  <main class="mt-[71px] lg:mt-[79px]">
     <FollowTag />
     <slot />
   </main>

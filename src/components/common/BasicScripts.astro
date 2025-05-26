@@ -41,7 +41,7 @@ import { UI } from 'astrowind:config';
   }
 
   const onLoad = function () {
-    let previousScroll = 0;
+    // let previousScroll = 0;
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
@@ -133,18 +133,18 @@ import { UI } from 'astrowind:config';
         header.classList.remove('scroll');
       }
 
-      if (window.innerWidth >= 1024) {
-        if (previousScroll > lastKnownScrollPosition) {
-          header.classList.remove('lg:invisible');
-          header.classList.add('lg:visible');
-        } else if (
-          lastKnownScrollPosition > 0 &&
-          lastKnownScrollPosition < document.documentElement.scrollHeight - window.innerHeight
-        ) {
-          header.classList.remove('lg:visible');
-          header.classList.add('lg:invisible');
-        }
-      }
+      // if (window.innerWidth >= 1024) {
+      //   if (previousScroll > lastKnownScrollPosition) {
+      //     header.classList.remove('lg:invisible');
+      //     header.classList.add('lg:visible');
+      //   } else if (
+      //     lastKnownScrollPosition > 0 &&
+      //     lastKnownScrollPosition < document.documentElement.scrollHeight - window.innerHeight
+      //   ) {
+      //     header.classList.remove('lg:visible');
+      //     header.classList.add('lg:invisible');
+      //   }
+      // }
       ticking = false;
     }
     applyHeaderStylesOnScroll();

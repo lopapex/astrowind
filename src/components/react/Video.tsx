@@ -12,7 +12,7 @@ type VideoProps = {
 
 const Video = ({ id, noSupport, community, creative, culture, discover }: VideoProps) => {
   return (
-    <div className="relative mt-0 lg:mt-[-81px]">
+    <div className="relative mt-0 lg:mt-[-79px]">
       <video
         id={id}
         className="w-full h-auto aspect-[16/9] lg:aspect-auto lg:h-[100vh] bg-black"
