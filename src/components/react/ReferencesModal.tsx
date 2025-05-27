@@ -50,7 +50,7 @@ const ReferenceModal = ({ reference, dialogRef, onClose }: ReferenceModalProps) 
               <ReactPlayer
                 url={reference.video}
                 controls={true}
-                light={!isIOSDevice ? reference.thumbnail : false} // light jen mimo iOS
+                light={!isIOSDevice} // light jen mimo iOS
                 width="100%"
                 height="100%"
                 playing={isPlaying}
