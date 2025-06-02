@@ -8,9 +8,10 @@ type VideoProps = {
   culture: string;
   community: string;
   discover: string;
+  message: string;
 };
 
-const Video = ({ id, noSupport, community, creative, culture, discover }: VideoProps) => {
+const Video = ({ id, noSupport, community, creative, culture, discover, message }: VideoProps) => {
   return (
     <div className="relative mt-0 lg:mt-[-79px]">
       <video
@@ -33,6 +34,12 @@ const Video = ({ id, noSupport, community, creative, culture, discover }: VideoP
       </div>
       <div className="absolute hidden lg:block bottom-[40px] left-1/2 transform -translate-x-1/2 z-10">
         <div className="flex flex-col justify-center items-center gap-2">
+          <div
+            className="text-orange-500 font-semibold text-base text-center mb-[50px]"
+            style={{ whiteSpace: 'pre-line' }}
+          >
+            {message}
+          </div>
           <VideoAsset />
           <div className="text-orange-500 font-secondary">{discover}</div>
         </div>

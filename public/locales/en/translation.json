@@ -5,6 +5,7 @@
     "creative": "Creative.",
     "culture": "Culture.",
     "community": "Community.",
+    "message": "We help brands who value originality, edge, and cultural\n impact to create unforgettable experiences that\n resonate and linger. Want proof? It’s all in the\n performance.",
     "discover": "Discover more",
     "noSupport": "Your browser does not support the video tag."
   },
@@ -18,20 +19,21 @@
   },
   "aim": {
     "title": {
-      "content": "We’re a collective of professional rebels",
-      "highlightIndexes": "4"
+      "content": "We’re a collective of creative professional rebels",
+      "highlightIndexes": "4",
+      "newLineIndexes": "6"
     },
-    "roles": "Choreographers, Dancers, Technicians, Directors, Managers",
+    "roles": "Creatives, Artists, Idea Makers, Choreographers, Dancers, Musicians, Technicians, Directors",
     "message": {
-      "content": "who craft cosmic artistic experiences.",
-      "highlightIndexes": "4, 6, 8",
-      "newLineIndexes": "3"
+      "content": "who craft cosmic artistic experiences. From the first spark of an idea to the final cut, we handle it all",
+      "highlightIndexes": "4, 6, 8, 24, 26, 28, 30",
+      "newLineIndexes": "3, 9, 23, 31"
     },
     "button": "Explore our dna"
   },
   "services": {
     "message": {
-      "content": "art direction performance tv shows/tours music videos audiovisual content concept creation concerts site-specific art brand events community events stage design light&sound",
+      "content": "art direction performance tv shows/tours music videos audiovisual content concept creation concerts brand events community events stage design 3D animation",
       "highlightIndexes": "0, 6, 8, 18, 24, 34",
       "newLineIndexes": "3, 5, 11, 15, 19, 23, 25, 29, 33, 37, 41"
     }
@@ -40,7 +42,7 @@
     "title": "References",
     "message": {
       "title": "Feel inspired?",
-      "description": "Let's chat, grab a coffee or exchange postcards and then do cool things together."
+      "description": "Let's chat, grab a coffee or exchange postcards and then do things together."
     },
     "contact": "contact us",
     "video": "Watch video"
@@ -58,12 +60,12 @@
   "dna": {
     "title": "Our Dna",
     "creative": {
-      "title": "Creative = the gist",
-      "description": "A term, perhaps, of dubious originality, but the act is like no other. The flow of bold ideas that lead us to that captivating pulse of novelty and cool experience."
+      "title": "Creative = the essence",
+      "description": "A concept that may seem familiar, but the process is like no other. It’s the surge of daring ideas that guide us to that irresistible rhythm of innovation and unforgettable experiences."
     },
     "culture": {
       "title": "Culture = the love",
-      "description": "Independent culture opens the space for change and a deeper sense of the world and society around. And we f*cking love it. "
+      "description": "Independent culture opens the space for change, a deeper sense of the world and society around. And we f*cking love it."
     },
     "community": {
       "title": "Community = the form",
