@@ -4,7 +4,7 @@ export const SOCIAL_LINKS = [
   // {
   //   ariaLabel: 'Linkedin',
   //   icon: 'tabler:brand-linkedin',
-  //   href: 'https://www.linkedin.com/in/mat%C4%9Bj-novotn%C3%BD-web-dev/',
+  //   href: '#',
   // },
 ];
 
