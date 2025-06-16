@@ -33,8 +33,13 @@ const Video = ({ id, noSupport, community, creative, culture, discover, message 
         autoPlay
         playsInline
         className={`bg-black
-          ${!isPortrait ? 'w-full h-auto aspect-[16/9] lg:aspect-auto lg:h-[100vh]' : 'h-[calc(100vh-73px)] w-auto left-1/2 relative transform -translate-x-1/2 object-cover'}
-        `}
+    ${
+      !isPortrait
+        ? 'w-full h-auto aspect-[16/9] lg:aspect-auto lg:h-[100vh]'
+        : 'w-auto left-1/2 relative transform -translate-x-1/2 object-cover lg:h-[100vh]'
+    }
+  `}
+        style={isPortrait ? { height: 'calc(100vh - 73px)' } : undefined}
       >
         <source src={bgVideo} type="video/mp4" />
         {noSupport}
