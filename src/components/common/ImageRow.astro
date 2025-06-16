@@ -15,13 +15,9 @@ const { colorClass, rotateClass, images, offsetClass } = Astro.props;
   <div class={twMerge('flex justify-center items-center whitespace-nowrap gap-2 p-2', offsetClass)}>
     {
       images.map((image) => (
-        <Image
-          src={image}
-          alt="Home"
-          width={500}
-          height={260}
-          class="shrink-0 aspect-[16/9] h-[160px] w-[230px] lg:h-[280px] lg:w-[500px]"
-        />
+        <div class="shrink-0 overflow-hidden rounded-md aspect-[16/9] h-[160px] w-[230px] lg:h-[260px] lg:w-[500px]">
+          <Image src={image} alt="Home" width={500} height={260} class="object-cover w-full h-full" />
+        </div>
       ))
     }
   </div>

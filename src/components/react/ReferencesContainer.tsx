@@ -84,7 +84,7 @@ const ReferencesContainer = ({ references, videoButton }) => {
         </Swiper>
       </SwiperWrapper>
       <ReferenceModal dialogRef={dialogRef} reference={selectedReference} onClose={() => setSelectedReference(null)} />
-      <div className="absolute hidden lg:block top-[150px] right-[50px] z-10">
+      <div className="absolute hidden lg:block top-[150px] right-[-50px] z-10">
         <ReferenceAsset />
       </div>
     </>

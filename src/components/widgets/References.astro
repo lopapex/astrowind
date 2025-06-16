@@ -33,9 +33,6 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
   <div class="mx-auto text-start my-6 lg:p-6 flex justify-center items-center flex-col">
     <div class="w-full text-start mb-[52px]">
       <div class="font-primary capitalize text-4xl lg:text-6xl text-white">{t('references.title')}</div>
-      <div class="text-white font-semibold text-base mt-3">
-        {t('references.subTitle')}
-      </div>
     </div>
 
     <ReferencesContainer client:idle references={references} videoButton={t('references.video')} />

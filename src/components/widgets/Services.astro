@@ -29,21 +29,21 @@ const { id, classes = {} } = Astro.props;
 
   <WidgetWrapper
     id={id}
-    containerClass={`max-w-6xl mx-auto mt-[200px] lg:mt-[100px] mb-[100px] lg:mb-[300px] ${classes?.container ?? ''}`}
+    containerClass={`max-w-6xl mx-auto mt-[100px] lg:mt-[100px] mb-[100px] lg:mb-[300px] ${classes?.container ?? ''}`}
   >
     <div class="mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
       <HighlightText
         translateKey="services.message"
-        className="relative max-w-3xl p-5 text-xl md:text-3xl lg:text-5xl uppercase font-primary"
+        className="relative max-w-3xl p-5 text-4xl md:text-4xl lg:text-5xl uppercase font-primary"
         highlightClassName="font-secondary"
       >
-        <div class="absolute top-[-100px] right-[100px] lg:top-[-120px] lg:right-[-50px]">
+        <div class="absolute top-[-80px] right-[100px] lg:top-[-120px] lg:right-[-50px] scale-75 lg:scale-100">
           <ManAsset />
         </div>
         <div class="hidden lg:block lg:absolute lg:top-[150px] lg:left-[45px]">
           <NoteAsset />
         </div>
-        <div class="absolute bottom-[-100px] right-[0px] lg:bottom-[-120px] lg:right-[50px]">
+        <div class="absolute bottom-[-60px] right-[0px] lg:bottom-[-120px] lg:right-[50px] scale-75 lg:scale-100">
           <CheckAsset />
         </div>
       </HighlightText>

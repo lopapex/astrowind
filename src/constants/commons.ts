@@ -1,5 +1,5 @@
 export const SOCIAL_LINKS = [
-  { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/3xc.creates/' },
+  { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/3xc.cz/' },
   // TODO: Add proper link
   // {
   //   ariaLabel: 'Linkedin',
