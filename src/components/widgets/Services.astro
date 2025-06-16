@@ -34,8 +34,9 @@ const { id, classes = {} } = Astro.props;
     <div class="mx-auto text-center flex justify-center items-center flex-col gap-[130px] py-[130px] px-6">
       <HighlightText
         translateKey="services.message"
-        className="relative max-w-3xl p-5 text-4xl lg:text-5xl uppercase font-primary"
+        className="relative max-w-3xl p-5 text-3xl lg:text-5xl uppercase font-primary"
         highlightClassName="font-secondary"
+        noWrap={true}
       >
         <div class="absolute top-[-80px] right-[100px] lg:top-[-120px] lg:right-[-50px] scale-75 lg:scale-100">
           <ManAsset />

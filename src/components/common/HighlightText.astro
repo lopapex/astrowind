@@ -1,7 +1,8 @@
 ---
 import { t } from 'i18next';
+import { twMerge } from 'tailwind-merge';
 
-const { translateKey, className, highlightClassName } = Astro.props;
+const { translateKey, className, highlightClassName, noWrap = false } = Astro.props;
 
 const value = t(`${translateKey}.content`);
 const indexArray = t(`${translateKey}.highlightIndexes`)
@@ -38,6 +39,6 @@ if (currentLine.length > 0) lines.push(currentLine);
 ---
 
 <div class={className}>
-  {lines.map((line) => <span class="whitespace-nowrap block" set:html={line.join(' ')} />)}
+  {lines.map((line) => <span class={twMerge(noWrap && 'whitespace-nowrap block')} set:html={line.join(' ')} />)}
   <slot />
 </div>
