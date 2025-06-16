@@ -11,26 +11,33 @@ const newLineArray = t(`${translateKey}.newLineIndexes`)
   .split(', ')
   .map((item) => Number(item));
 
-// Split by space and slash, but preserve '/'' in 'world map'
+// Split by space and slash, but preserve '/' in 'world map'
 const words: string[] = value.split(/(\s+|\/)/).reduce((acc, part, index, arr) => {
   if (part === '/' && arr[index - 1] === 'world' && arr[index + 1] === 'map') {
-    acc[acc.length - 1] += part + arr[index + 1]; // Append '/' and 'map' to 'world'
-    arr[index + 1] = ''; // Mark 'map' as processed
+    acc[acc.length - 1] += part + arr[index + 1];
+    arr[index + 1] = '';
   } else if (part !== '') {
     acc.push(part);
   }
   return acc;
 }, [] as string[]);
+
+// Group words by line based on newLineArray
+const lines: string[][] = [];
+let currentLine: string[] = [];
+
+words.forEach((word, index) => {
+  currentLine.push(indexArray.includes(index) ? `<span class="${highlightClassName}">${word}</span>` : word);
+  if (newLineArray.includes(index)) {
+    lines.push([...currentLine]);
+    currentLine = [];
+  }
+});
+
+if (currentLine.length > 0) lines.push(currentLine);
 ---
 
 <div class={className}>
-  {
-    words.map((word, index) => (
-      <>
-        {indexArray.includes(index) ? <span class={highlightClassName}>{word}</span> : word}
-        {newLineArray?.includes(index) && <br />}
-      </>
-    ))
-  }
+  {lines.map((line) => <span class="whitespace-nowrap block" set:html={line.join(' ')} />)}
   <slot />
 </div>
