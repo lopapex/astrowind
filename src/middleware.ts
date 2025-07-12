@@ -2,9 +2,9 @@ import type { MiddlewareHandler } from 'astro';
 
 export const onRequest: MiddlewareHandler = async ({ request, redirect }, next) => {
   const url = new URL(request.url);
+  const allowedPaths = ['/', '/sitemap.xml', '/robots.txt'];
 
-  // Allow only root path "/"
-  if (url.pathname !== '/') {
+  if (!allowedPaths.includes(url.pathname)) {
     return redirect('/', 302);
   }
 
