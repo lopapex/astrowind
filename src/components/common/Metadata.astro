@@ -7,8 +7,6 @@ import type { Props as AstroSeoProps } from '@astrolib/seo';
 
 import { SITE, METADATA } from 'astrowind:config';
 import type { MetaData } from '~/types';
-import { getCanonical } from '~/utils/permalinks';
-
 import { adaptOpenGraphImages } from '~/utils/images';
 
 export interface Props extends MetaData {
@@ -18,7 +16,6 @@ export interface Props extends MetaData {
 const {
   title,
   ignoreTitleTemplate = false,
-  canonical = String(getCanonical(String(Astro.url.pathname))),
   description,
   openGraph = {},
   twitter = {},
@@ -28,12 +25,8 @@ const seoProps: AstroSeoProps = merge(
   {
     title: '',
     titleTemplate: '%s',
-    canonical: canonical,
-    noindex: false,
-    nofollow: false,
     description: undefined,
     openGraph: {
-      url: canonical,
       site_name: SITE?.name,
       images: [],
       locale: i18next?.language || 'en',
@@ -46,8 +39,6 @@ const seoProps: AstroSeoProps = merge(
   {
     title: METADATA?.title?.default,
     titleTemplate: METADATA?.title?.template,
-    noindex: false,
-    nofollow: false,
     description: METADATA?.description,
     openGraph: METADATA?.openGraph,
     twitter: METADATA?.twitter,
@@ -55,11 +46,8 @@ const seoProps: AstroSeoProps = merge(
   {
     title: title,
     titleTemplate: ignoreTitleTemplate ? '%s' : undefined,
-    canonical: canonical,
-    noindex: false,
-    nofollow: false,
     description: description,
-    openGraph: { url: canonical, ...openGraph },
+    openGraph: openGraph,
     twitter: twitter,
   }
 );
