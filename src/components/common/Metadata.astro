@@ -13,13 +13,7 @@ export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
 }
 
-const {
-  title,
-  ignoreTitleTemplate = false,
-  description,
-  openGraph = {},
-  twitter = {},
-} = Astro.props;
+const { title, ignoreTitleTemplate = false, description, openGraph = {}, twitter = {} } = Astro.props;
 
 const seoProps: AstroSeoProps = merge(
   {
