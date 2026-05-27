@@ -5,6 +5,7 @@ import { t } from 'i18next';
 import Video from '~/components/react/Video';
 import { NAV_LINKS_ACADEMY_MAP } from '~/constants/commons';
 import News from '~/components/widgets/academy/News.astro';
+import Calendar from '~/components/widgets/academy/Calendar.astro';
 
 const metadata = {
   title: t('academy.title'),
@@ -21,4 +22,5 @@ const metadata = {
   />
 
   <News id={NAV_LINKS_ACADEMY_MAP.NEWS.href.replace('#', '')} />
+  <Calendar id={NAV_LINKS_ACADEMY_MAP.CALENDAR.href.replace('#', '')} />
 </Layout>

@@ -84,7 +84,7 @@
     "copyright": {
       "reserved": "All right reserved",
       "gdpr": "GDPR",
-      "year": "CCC 2025"
+      "year": "CCC 2026"
     }
   },
   "academy": {
@@ -102,6 +102,10 @@
     "news": {
       "title": "Novinky",
       "more": "Zobrazit více"
+    },
+    "calendar": {
+      "title": "Rozvrh",
+      "priceTitle": "Kurzovné"
     }
   }
 }

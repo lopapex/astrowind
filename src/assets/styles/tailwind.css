@@ -98,6 +98,16 @@
   .dna-description {
     @apply font-raleway font-medium;
   }
+
+  .bg-paper {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+
+    background-position:
+      0 0,
+      12px 12px;
+    background-size: 24px 24px;
+  }
 }
 
 #header.scroll > div:first-child {
