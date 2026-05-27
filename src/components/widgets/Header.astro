@@ -6,7 +6,7 @@ import Button from '~/components/ui/Button.astro';
 import { trimSlash, getAsset } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
 import i18next, { t } from 'i18next';
-import { NAV_LINKS, NAV_LINKS_MAP } from '~/constants/commons';
+import { NAV_LINKS_ACADEMY_MAP, NAV_LINKS_MAP } from '~/constants/commons';
 import LogoAsset from '../react/assets/LogoAsset';
 
 interface Link {
@@ -37,6 +37,11 @@ await i18next.changeLanguage(lang);
 const { id = 'header', actions = [], showRssFeed = false, position = 'right' } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const isAcademy = currentPath.includes('danceAcademy');
+const navLinks = Object.values(isAcademy ? NAV_LINKS_ACADEMY_MAP : NAV_LINKS_MAP).filter(
+  (item) => item.text !== undefined
+);
+
 ---
 
 <header
@@ -71,12 +76,12 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] font-medium lg:justify-center mt-[20%] lg:mt-0"
       >
         {
-          NAV_LINKS.map(({ text, href }) => (
+          navLinks.map(({ text, href }) => (
             <li>
               <a
                 class:list={[
                   'hover:underline text-base dark:hover:text-white text-orange-500 px-4 py-1 flex items-center whitespace-nowrap uppercase',
-                  { 'aw-link-active': href === currentPath },
+                  { 'aw-link-active': currentPath.includes(href) },
                 ]}
                 href={href}
               >
@@ -85,6 +90,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             </li>
           ))
         }
+        <li>
+          <a class="btn-header text-nowrap" href={isAcademy ? '/' : '/danceAcademy'}
+            >{isAcademy ? '3XC' : 'Dance academy'}</a
+          >
+        </li>
         <li class="my-2 mx-4 block lg:hidden">
           <a class="btn-header" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
         </li>

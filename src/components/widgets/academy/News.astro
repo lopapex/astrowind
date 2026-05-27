@@ -1,0 +1,35 @@
+---
+import WidgetWrapper from '../../ui/WidgetWrapper.astro';
+import type { Widget } from '~/types';
+
+import { t } from 'i18next';
+import { fetchNewsData } from '~/utils/api';
+import NewsContainer from '~/components/react/NewsContainer';
+
+export const prerender = false;
+
+const { lang } = Astro.params;
+const news = await fetchNewsData(lang);
+
+type Props = Widget;
+
+const { id, classes = {} } = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  wrapperClass="bg-aim"
+  containerClass={`max-w-6xl mx-auto mb-[100px] lg:mb-[250px] ${classes?.container ?? ''}`}
+>
+  <div class="mx-auto text-start my-6 lg:p-6 flex justify-center items-center flex-col">
+    <div class="w-full text-start mb-[52px]">
+      <div class="font-primary capitalize text-4xl lg:text-6xl text-white">{t('academy.news.title')}</div>
+    </div>
+
+    <NewsContainer
+      client:idle
+      news={news}
+      moreButton={t('academy.news.more')}
+    />
+  </div>
+</WidgetWrapper>

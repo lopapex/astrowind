@@ -7,9 +7,9 @@ type VideoProps = {
   noSupport: string;
   creative: string;
   culture: string;
-  community: string;
-  discover: string;
-  message: string;
+  community?: string | null;
+  discover?: string | null;
+  message?: string | null;
 };
 
 const Video = ({ id, noSupport, community, creative, culture, discover, message }: VideoProps) => {
@@ -55,7 +55,7 @@ const Video = ({ id, noSupport, community, creative, culture, discover, message 
         <div className="flex flex-col justify-center items-center gap-2">
           <div className="text-orange-500 text-center text-sm lg:text-base mb-2 w-[80vw] lg:w-[700px]">{message}</div>
 
-          <VideoAsset />
+          {discover && <VideoAsset />}
           <div className="text-orange-500 font-secondary text-sm lg:text-base">{discover}</div>
         </div>
       </div>

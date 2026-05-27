@@ -2,6 +2,7 @@ const GOOGLE_SHEET_API_URL =
   'https://script.google.com/macros/s/AKfycbymFzqi6SaNgFFWetbWimasKbWfm08iT5eWTydzf0WmRcx-auN4UFaTckTkKzMu_5IbkQ/exec?path';
 const TEAM_SHEET = `team`;
 const REFERENCES_SHEET = `references`;
+const NEWS_SHEET = `news`;
 
 export async function fetchTeamData(lang = 'en') {
   try {
@@ -58,3 +59,27 @@ export async function fetchReferencesData(lang = 'en') {
     return [];
   }
 }
+
+export async function fetchNewsData(lang = 'en') {
+  try {
+    const response = await fetch(`${GOOGLE_SHEET_API_URL}=${NEWS_SHEET}-${lang}`);
+    const { data } = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error('Invalid API response format');
+    }
+
+    return data.map((newItem, index) => {
+      return {
+        id: `${index} - ${newItem.Name}`,
+        name: newItem.Name || '',
+        thumbnail: newItem.Image,
+        description: newItem.Description || '',
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching team data:', error);
+    return [];
+  }
+}
+

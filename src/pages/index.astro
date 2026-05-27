@@ -3,20 +3,12 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Aim from '~/components/widgets/Aim.astro';
 import Team from '~/components/widgets/Team.astro';
-import i18next, { t } from 'i18next';
+import { t } from 'i18next';
 import Video from '~/components/react/Video';
 import Services from '~/components/widgets/Services.astro';
 import { NAV_LINKS_MAP } from '~/constants/commons';
 import Dna from '~/components/widgets/Dna.astro';
 import References from '~/components/widgets/References.astro';
-
-export function getStaticPaths() {
-  return i18next.languages.map((item) => ({
-    params: { lang: item },
-  }));
-}
-
-await i18next.changeLanguage(i18next.language);
 
 const metadata = {
   title: t('title'),

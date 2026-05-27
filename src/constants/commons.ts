@@ -18,4 +18,11 @@ export const NAV_LINKS_MAP = {
   CONTACT: { text: undefined, href: '#contact' },
 };
 
-export const NAV_LINKS = Object.values(NAV_LINKS_MAP).filter((item) => item.text !== undefined);
+export const NAV_LINKS_ACADEMY_MAP = {
+  HOME: { text: undefined, href: '#home' },
+  NEWS: { text: 'academy.navigation.news', href: '#news' },
+  CALENDAR: { text: 'academy.navigation.calendar', href: '#calendar' },
+  CATEGORIES: { text: 'academy.navigation.categories', href: '#categories' },
+  ABOUT: { text: 'academy.navigation.about', href: '#about' },
+  CONTACT: { text: undefined, href: '#contact' },
+};
