@@ -14,7 +14,6 @@ type NewsModalProps = {
 };
 
 const NewsModal = ({ news, dialogRef, onClose }: NewsModalProps) => {
-
   const closeDialog = () => {
     onClose();
     if (dialogRef.current) {

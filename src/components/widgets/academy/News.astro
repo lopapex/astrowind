@@ -26,10 +26,6 @@ const { id, classes = {} } = Astro.props;
       <div class="font-primary capitalize text-4xl lg:text-6xl text-white">{t('academy.news.title')}</div>
     </div>
 
-    <NewsContainer
-      client:idle
-      news={news}
-      moreButton={t('academy.news.more')}
-    />
+    <NewsContainer client:idle news={news} moreButton={t('academy.news.more')} />
   </div>
 </WidgetWrapper>
