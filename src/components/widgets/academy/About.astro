@@ -1,0 +1,61 @@
+---
+import WidgetWrapper from '../../ui/WidgetWrapper.astro';
+import type { CallToAction, Widget } from '~/types';
+import { t } from 'i18next';
+import HighlightText from '~/components/common/HighlightText.astro';
+import SpiralAsset from '~/components/react/assets/SpiralAsset';
+import DnaAsset from '~/components/react/assets/DnaAsset';
+
+export const prerender = false;
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  callToAction?: CallToAction;
+  actions?: string | CallToAction[];
+}
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  wrapperClass="bg-dna pb-[100px]"
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <div class="relative mx-auto text-center flex justify-center items-center flex-col gap-[80px] py-[130px] px-6">
+    <div class="flex flex-col">
+      <div class="uppercase text-green-500 font-primary text-[120px] lg:text-[200px] z-10">
+        {t('academy.about.title')}
+      </div>
+      <div class="uppercase text-green-500 font-primary text-[120px] lg:text-[200px] z-10 mt-[-100px]">
+        {t('academy.about.subtitle')}
+      </div>
+    </div>
+
+    <div class="relative flex flex-col lg:gap-0 lg:flex-row w-full justify-center text-white">
+      <div class="flex- flex-col gap-20 justify-center items-center">
+        <HighlightText
+          translateKey="academy.about.message"
+          className="relative p-5 text-4xl lg:text-6xl font-primary"
+          highlightClassName="font-secondary"
+        />
+        <div class="flex justify-center">
+          <div class="text-sm w-1/2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lorem mauris. Donec convallis ex eget
+            sem rhoncus mollis. Sed in ipsum sem. Vestibulum dapibus, m
+          </div>
+        </div>
+      </div>
+      <div class="absolute hidden lg:block top-[-250px] left-[-100px]">
+        <SpiralAsset />
+      </div>
+    </div>
+    <div class="absolute top-[-100px] right-[-125px] lg:top-[-150px] lg:right-0">
+      <DnaAsset />
+    </div>
+  </div>
+</WidgetWrapper>

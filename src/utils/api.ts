@@ -5,6 +5,7 @@ const REFERENCES_SHEET = `references`;
 const NEWS_SHEET = `news`;
 const CALENDAR_SHEET = `calendar`;
 const ACADEMY_SHEET = `academy`;
+const CATEGORIES_SHEET = `categories`;
 
 export async function fetchTeamData(lang = 'en') {
   try {
@@ -75,7 +76,7 @@ export async function fetchNewsData(lang = 'en') {
       return {
         id: `${index} - ${newItem.Name}`,
         name: newItem.Name || '',
-        thumbnail: newItem.Image,
+        thumbnail: newItem.Image || '/images/placeholder.jpg',
         description: newItem.Description || '',
       };
     });
@@ -127,6 +128,30 @@ export async function fetchAcademyData(lang = 'en') {
     }
 
     return data[0] || {};
+  } catch (error) {
+    console.error('Error fetching team data:', error);
+    return [];
+  }
+}
+
+export async function fetchCategoriesData(lang = 'en') {
+  try {
+    const response = await fetch(`${GOOGLE_SHEET_API_URL}=${CATEGORIES_SHEET}-${lang}`);
+    const { data } = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error('Invalid API response format');
+    }
+
+    return data.map((newItem, index) => {
+      return {
+        id: `${index} - ${newItem.Name}`,
+        name: newItem.Name || '',
+        title: newItem.Title || '',
+        description: newItem.Description || '',
+        image: newItem.Image || '/images/placeholder.jpg',
+      };
+    });
   } catch (error) {
     console.error('Error fetching team data:', error);
     return [];

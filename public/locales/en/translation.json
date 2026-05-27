@@ -106,6 +106,15 @@
     "calendar": {
       "title": "Rozvrh",
       "priceTitle": "Kurzovné"
+    },
+    "about": {
+      "title": "About",
+      "subtitle": "us",
+      "message": {
+        "content": "Úvodný krátky paragrafWe’re a collective of professional rebels",
+        "highlightIndexes": "8",
+        "newLineIndexes": "2, 10"
+      }
     }
   }
 }

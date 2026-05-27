@@ -1,0 +1,71 @@
+---
+import WidgetWrapper from '../../ui/WidgetWrapper.astro';
+import type { CallToAction, Widget } from '~/types';
+import { fetchCategoriesData } from '~/utils/api';
+import { Image } from 'astro:assets';
+
+export const prerender = false;
+
+const { lang } = Astro.params;
+const categories = await fetchCategoriesData(lang);
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  callToAction?: CallToAction;
+  actions?: string | CallToAction[];
+}
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  roundBottomClass="bg-dna"
+  wrapperClass="bg-blue-500 pb-[100px]"
+  containerClass={`max-w-6xl mx-auto !pt-[100px] mt-[100px] lg:mt-[0px] mb-20 ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <div class="flex flex-col gap-20 text-white">
+    {
+      categories.map((category, index) => {
+        const isEven = index % 2 === 0;
+
+        return (
+          <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12">
+            <div
+              class:list={[
+                'flex flex-col items-start max-w-[450px] text-xl font-delight gap-5',
+                !isEven && 'lg:order-2',
+              ]}
+            >
+              <div class="text-4xl lg:text-5xl font-primary">{category.name}</div>
+
+              <div class="text-lg lg:text-xl font-delight">{category.title}</div>
+
+              <div class="text-sm font-delight">{category.description}</div>
+            </div>
+
+            <div
+              class:list={[
+                'w-full shrink-0 overflow-hidden aspect-[16/9]',
+                'lg:h-[380px] lg:w-[700px]',
+                !isEven && 'lg:order-1',
+              ]}
+            >
+              <Image
+                src={category.image}
+                alt={category.name}
+                width={700}
+                height={380}
+                class="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</WidgetWrapper>
