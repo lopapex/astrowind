@@ -93,11 +93,8 @@
       "news": "Novinky",
       "calendar": "Rozvrh",
       "categories": "Kategorie",
-      "about": "About us"
-    },
-    "video": {
-      "creative": "Dance",
-      "culture": "Academy"
+      "about": "About us",
+      "team": "Tým"
     },
     "news": {
       "title": "Novinky",
@@ -115,6 +112,20 @@
         "highlightIndexes": "8",
         "newLineIndexes": "2, 10"
       }
-    }
+    },
+    "footer": {
+      "socials": "Co je u nás nového?",
+      "panel": {
+        "title": "Or get in touch",
+        "phone": "+420777995528",
+        "email": "contact@3xc.cz"
+      },
+      "copyright": {
+        "reserved": "All right reserved",
+        "gdpr": "GDPR",
+        "year": "CCC 2026"
+      }
+    },
+    "signin": "Přihlásit se"
   }
 }

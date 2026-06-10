@@ -1,10 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components';
 import i18next, { t } from 'i18next';
-import { SOCIAL_LINKS } from '~/constants/commons';
+import { ACADEMY_SOCIAL_LINKS, SOCIAL_LINKS } from '~/constants/commons';
+
+export interface Props {
+  isAcademy?: boolean;
+}
 
 const { lang } = Astro.params;
+const { isAcademy } = Astro.props;
+
 await i18next.changeLanguage(lang);
+const links = isAcademy ? ACADEMY_SOCIAL_LINKS : SOCIAL_LINKS;
 ---
 
 <!-- TODO: Add translate -65px once linkendin icon is added -->
@@ -14,9 +21,9 @@ await i18next.changeLanguage(lang);
   <div class="flex justify-center items-center gap-1 p-0 lg:p-2 bg-green-500">
     <div class="hidden lg:block text-black uppercase text-base">{t('followTag')}</div>
     {
-      SOCIAL_LINKS.length ? (
+      links.length ? (
         <ul class="flex ml-[24px] mr-[24px] mt-1 lg:ml-1 lg:mr-0 lg:mt-auto">
-          {SOCIAL_LINKS.map(({ ariaLabel, href, icon }) => (
+          {links.map(({ ariaLabel, href, icon }) => (
             <li>
               <a
                 class="text-black hover:text-white transition ease-in duration-200 rounded-lg text-sm p-1 inline-flex items-center"

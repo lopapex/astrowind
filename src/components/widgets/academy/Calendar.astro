@@ -5,6 +5,7 @@ import type { Widget } from '~/types';
 import { t } from 'i18next';
 import ImageRow from '../../common/ImageRow.astro';
 import { fetchAcademyData, fetchCalendarData } from '~/utils/api';
+import { FORM } from '~/constants/commons';
 
 type Props = Widget;
 
@@ -63,14 +64,9 @@ const academyData = await fetchAcademyData(lang);
           )
         }
       </div>
-
-      {
-        academyData.CalendarDesription1 && (
-          <div class="flex flex-col items-start max-w-[450px] text-xl font-delight">
-            {academyData.CalendarDesription1}
-          </div>
-        )
-      }
+      <div class="flex items-center justify-center mt-[-50px]">
+        <a class="btn-header-secondary text-nowrap text-2xl py-2" href={FORM} target="_blank">{t('academy.signin')}</a>
+      </div>
 
       <div class="flex items-start justify-between border-t border-black pt-10">
         <div class="flex flex-col items-start max-w-[450px] text-xl font-delight gap-5">

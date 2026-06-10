@@ -2,29 +2,30 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import { t } from 'i18next';
-import Video from '~/components/react/Video';
+import VideoAcademy from '~/components/react/VideoAcademy';
 import { NAV_LINKS_ACADEMY_MAP } from '~/constants/commons';
 import News from '~/components/widgets/academy/News.astro';
 import Calendar from '~/components/widgets/academy/Calendar.astro';
 import Categories from '~/components/widgets/academy/Categories.astro';
 import About from '~/components/widgets/academy/About.astro';
+import Team from '~/components/widgets/academy/Team.astro';
 
 const metadata = {
   title: t('academy.title'),
 };
 ---
 
-<Layout metadata={metadata}>
-  <Video
+<Layout metadata={metadata} isAcademy>
+  <VideoAcademy
     client:idle
     id={NAV_LINKS_ACADEMY_MAP.HOME.href.replace('#', '')}
     noSupport={t('video.noSupport')}
-    creative={t('academy.video.creative')}
-    culture={t('academy.video.culture')}
+    signin={t('academy.signin')}
   />
 
   <News id={NAV_LINKS_ACADEMY_MAP.NEWS.href.replace('#', '')} />
   <Calendar id={NAV_LINKS_ACADEMY_MAP.CALENDAR.href.replace('#', '')} />
   <Categories id={NAV_LINKS_ACADEMY_MAP.CATEGORIES.href.replace('#', '')} />
+  <Team id={NAV_LINKS_ACADEMY_MAP.TEAM.href.replace('#', '')} />
   <About id={NAV_LINKS_ACADEMY_MAP.ABOUT.href.replace('#', '')} />
 </Layout>

@@ -1,0 +1,104 @@
+---
+import { Icon } from 'astro-icon/components';
+import { ACADEMY_SOCIAL_LINKS, NAV_LINKS_MAP } from '~/constants/commons';
+import { t } from 'i18next';
+import { Image } from 'astro:assets';
+import SignatureAsset from '../../react/assets/SignatureAsset';
+import ArrowAsset from '../../react/assets/ArrowAsset';
+---
+
+<footer
+  class:list={['relative not-prose bg-blue-500 overflow-x-hidden']}
+  id={NAV_LINKS_MAP.CONTACT.href.replace('#', '')}
+>
+  <div
+    class="absolute w-[calc(100%+80px)] h-[100px] top-[-35px] left-0 bg-blue-500 transform rotate-[-2deg] pointer-events-none"
+  >
+  </div>
+  <div class="absolute top-0 right-0">
+    <SignatureAsset />
+  </div>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div
+    class="relative max-w-7xl mx-auto px-4 sm:px-6 intersect-once intersect-quarter intercept-no-queue motion-safe:lg:opacity-0 motion-safe:lg:intersect:animate-fade"
+  >
+    <div class="lg:flex lg:items-center py-6 lg:py-8 px-5">
+      <div class="w-full lg:flex lg:flex-col lg:gap-2">
+        <div class="font-primary text-green-500 text-2xl">
+          {t('academy.footer.follow')}
+        </div>
+        <div class="w-full lg:flex lg:gap-4 lg:justify-start lg:items-center">
+          <div class="font-primary font-semibold text-white text-4xl lg:text-6xl max-w-full lg:max-w-[40%]">
+            {t('academy.footer.socials')}
+          </div>
+
+          <div class="flex items-center justify-start gap-4 mt-5 lg:mt-0">
+            <div class="pt-5">
+              <ArrowAsset />
+            </div>
+            <div class="flex flex-col gap-6">
+              {
+                ACADEMY_SOCIAL_LINKS.length ? (
+                  <ul class="flex mb-4 lg:mb-0 rtl:ml-0 rtl:-mr-2 rtl:lg:ml-0 rtl:lg:mr-4">
+                    {ACADEMY_SOCIAL_LINKS.map(({ ariaLabel, href, icon }) => (
+                      <li>
+                        <a
+                          class="text-white hover:text-orange-500 transition ease-in duration-200 rounded-lg text-sm p-1 inline-flex items-center"
+                          aria-label={ariaLabel}
+                          href={href}
+                          target="_blank"
+                        >
+                          {icon && <Icon name={icon} class="w-[70px] h-[70px]" />}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  ''
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow-lg rounded bg-blue-600 py-3 px-5 my-[50px]">
+      <div class="w-full flex flex-col justify-center lg:flex-row lg:justify-between items-center">
+        <div class="w-full flex flex-col items-center lg:items-start">
+          <div class="font-primary text-green-500 text-2xl">
+            {t('academy.footer.panel.title')}
+          </div>
+          <div
+            class="w-full flex flex-col justify-center gap-5 lg:flex-row lg:gap-20 lg:justify-start items-center my-5"
+          >
+            <div class="font-primary font-semibold text-white text-4xl hover:underline">
+              <a href=`tel:${t('academy.footer.panel.phone')}` class="hover:underline">
+                {t('academy.footer.panel.phone')}
+              </a>
+            </div>
+            <div class="font-primary font-semibold text-white text-4xl hover:underline">
+              <a href=`mailto:${t('footer.panel.email')}` class="hover:underline">
+                {t('academy.footer.panel.email')}
+              </a>
+            </div>
+          </div>
+        </div>
+        <Image src={'/images/logo.png'} alt="CCC" width="85" height="85" />
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center font-primary text-white text-base font-normal">
+      <div class="flex gap-20 justify-start items-center my-5">
+        <div>
+          {t('academy.footer.copyright.reserved')}
+        </div>
+        <div>
+          {t('academy.footer.copyright.gdpr')}
+        </div>
+      </div>
+      <div>
+        {t('academy.footer.copyright.year')}
+      </div>
+    </div>
+  </div>
+</footer>

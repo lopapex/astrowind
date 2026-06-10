@@ -2,15 +2,17 @@
 import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
+import FooterAcademy from '~/components/widgets/academy/Footer.astro';
 
 import type { MetaData } from '~/types';
 import FollowTag from '~/components/widgets/FollowTag.astro';
 
 export interface Props {
   metadata?: MetaData;
+  isAcademy?: boolean;
 }
 
-const { metadata } = Astro.props;
+const { metadata, isAcademy = false } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
@@ -19,10 +21,10 @@ const { metadata } = Astro.props;
     <Header position="center" />
   </slot>
   <main class="mt-[71px] lg:mt-[79px]">
-    <FollowTag />
+    <FollowTag isAcademy={isAcademy} />
     <slot />
   </main>
   <slot name="footer">
-    <Footer />
+    {isAcademy ? <FooterAcademy /> : <Footer />}
   </slot>
 </Layout>

@@ -16,15 +16,15 @@ interface Props extends Widget {
   actions?: string | CallToAction[];
 }
 
-const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+const { id, isDark = false, classes = {} } = Astro.props;
 ---
 
 <WidgetWrapper
   id={id}
   isDark={isDark}
-  wrapperClass="bg-dna pb-[100px]"
-  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
-  bg={bg}
+  roundTopClass="bg-orange-500"
+  wrapperClass="bg-dna"
+  containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`}
 >
   <div class="relative mx-auto text-center flex justify-center items-center flex-col gap-[80px] py-[130px] px-6">
     <div class="flex flex-col">

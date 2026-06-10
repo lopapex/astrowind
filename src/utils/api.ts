@@ -7,9 +7,9 @@ const CALENDAR_SHEET = `calendar`;
 const ACADEMY_SHEET = `academy`;
 const CATEGORIES_SHEET = `categories`;
 
-export async function fetchTeamData(lang = 'en') {
+export async function fetchTeamData(lang = 'en', isAcademy = false) {
   try {
-    const response = await fetch(`${GOOGLE_SHEET_API_URL}=${TEAM_SHEET}-${lang}`);
+    const response = await fetch(`${GOOGLE_SHEET_API_URL}=${TEAM_SHEET}${isAcademy ? '-academy' : ''}-${lang}`);
     const { data } = await response.json();
 
     if (!Array.isArray(data)) {
