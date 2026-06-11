@@ -12,7 +12,6 @@ type VideoAcademyProps = {
 
 const VideoAcademy = ({ id, noSupport, signin, text1, text2 }: VideoAcademyProps) => {
   const [isPortrait, setIsPortrait] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     const updateOrientation = () => {
@@ -39,12 +38,8 @@ const VideoAcademy = ({ id, noSupport, signin, text1, text2 }: VideoAcademyProps
           muted
           autoPlay
           playsInline
-          preload="metadata"
-          onLoadedMetadata={() => setIsVideoLoaded(true)}
-          onLoadedData={() => setIsVideoLoaded(true)}
-          className={`absolute inset-0 z-0 h-full w-full bg-black object-cover transition-opacity duration-300 ${
-            isVideoLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
+          preload="auto"
+          className="absolute inset-0 z-0 h-full w-full bg-black object-cover"
         >
           <source src={bgVideo} type="video/mp4" />
           {noSupport}
