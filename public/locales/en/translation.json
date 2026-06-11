@@ -94,7 +94,8 @@
       "calendar": "Rozvrh",
       "categories": "Kategorie",
       "about": "About us",
-      "team": "Tým"
+      "team": "Tým",
+      "button": "Kontaktuj nás"
     },
     "news": {
       "title": "Novinky",
@@ -107,11 +108,17 @@
     "about": {
       "title": "About",
       "subtitle": "us",
+      "messageTop": {
+        "content": "3C Dance Academy Creative. Culture. Community.",
+        "highlightIndexes": "6, 8, 10",
+        "newLineIndexes": "4"
+      },
       "message": {
-        "content": "Úvodný krátky paragrafWe’re a collective of professional rebels",
-        "highlightIndexes": "8",
-        "newLineIndexes": "2, 10"
-      }
+        "content": "Jsme Céčka, taneční škola,  kde roste nová generace tanečních talentů.",
+        "highlightIndexes": "4, 6",
+        "newLineIndexes": "2, 6"
+      },
+      "content": "Vznikli jsme jako divize umělecké a produkční agentury 3C s jasným cílem: předávat reálnou taneční kulturu a streetdance nové generaci. Naše děti neučí náhodní lektoři, ale profesionální tanečníci a choreografové, kteří sami stojí na velkých pódiích, v reklamách a televizních show. Nesázíme na suchý dril. Budujeme komunitu, kde se potkává respekt, rozvoj zdravého pohybu a odvaha vybočit z řady."
     },
     "footer": {
       "follow": "Follow us",

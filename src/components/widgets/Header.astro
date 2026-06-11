@@ -89,13 +89,15 @@ const navLinks = Object.values(isAcademy ? NAV_LINKS_ACADEMY_MAP : NAV_LINKS_MAP
             </li>
           ))
         }
-        <li>
+        <li class="mx-4 my-2 md:my-0">
           <a class="btn-header text-nowrap" href={isAcademy ? '/' : '/danceAcademy'}
             >{isAcademy ? '3XC' : 'Dance academy'}</a
           >
         </li>
         <li class="my-2 mx-4 block lg:hidden">
-          <a class="btn-header" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
+          <a class="btn-header" href={NAV_LINKS_MAP.CONTACT.href}
+            >{isAcademy ? t('academy.navigation.button') : t('navigation.button')}</a
+          >
         </li>
       </ul>
     </nav>
@@ -130,7 +132,9 @@ const navLinks = Object.values(isAcademy ? NAV_LINKS_ACADEMY_MAP : NAV_LINKS_MAP
             ''
           )
         }
-        <a class="btn-header hidden lg:block" href={NAV_LINKS_MAP.CONTACT.href}>{t('navigation.button')}</a>
+        <a class="btn-header hidden lg:block" href={NAV_LINKS_MAP.CONTACT.href}
+          >{isAcademy ? t('academy.navigation.button') : t('navigation.button')}</a
+        >
       </div>
     </div>
   </div>
