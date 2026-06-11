@@ -68,10 +68,15 @@ const academyData = await fetchAcademyData(lang);
         <a class="btn-header-secondary text-nowrap text-2xl py-2" href={FORM} target="_blank">{t('academy.signin')}</a>
       </div>
 
-      <div class="flex flex-col md:flex-row items-start justify-between border-t border-black pt-10 gap-10">
+      <div class="flex items-start justify-between border-t border-black pt-10">
         <div class="flex flex-col items-start max-w-[450px] text-xl font-delight gap-5">
           <div class="text-5xl font-primary">
             {t('academy.calendar.priceTitle')}
+          </div>
+
+          {/* Mobile price */}
+          <div class="flex md:hidden text-5xl font-primary">
+            {academyData.Price}
           </div>
 
           <div class="text-xl font-delight">
@@ -83,7 +88,8 @@ const academyData = await fetchAcademyData(lang);
           </div>
         </div>
 
-        <div class="flex flex-col items-start text-xl font-delight gap-5 text-5xl font-primary">
+        {/* Desktop price */}
+        <div class="hidden md:flex flex-col items-start text-5xl font-primary">
           {academyData.Price}
         </div>
       </div>
