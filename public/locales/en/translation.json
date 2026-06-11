@@ -89,6 +89,10 @@
   },
   "academy": {
     "title": "Dance academy",
+    "video": {
+      "text": "Místo pro",
+      "text2": "tvůj styl"
+    },
     "navigation": {
       "news": "Novinky",
       "calendar": "Rozvrh",
