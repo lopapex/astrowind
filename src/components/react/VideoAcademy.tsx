@@ -26,25 +26,23 @@ const VideoAcademy = ({ id, noSupport, signin, text1, text2 }: VideoAcademyProps
   }, []);
 
   return (
-    <div className="relative mt-0 lg:mt-[-79px] bg-black overflow-hidden">
+    <div className="relative mt-0 overflow-hidden bg-black lg:mt-[-79px]">
       <div
         className={`relative overflow-hidden bg-black ${
           !isPortrait ? 'w-full aspect-[16/9] lg:aspect-auto lg:h-[100vh]' : 'w-full lg:h-[100vh]'
         }`}
         style={isPortrait ? { height: 'calc(100vh - 73px)' } : undefined}
       >
-        {!isVideoLoaded && <div className="absolute inset-0 z-0 bg-black" />}
-
         <video
           id={id}
           loop
           muted
           autoPlay
           playsInline
-          preload="auto"
-          onCanPlay={() => setIsVideoLoaded(true)}
+          preload="metadata"
+          onLoadedMetadata={() => setIsVideoLoaded(true)}
           onLoadedData={() => setIsVideoLoaded(true)}
-          className={`absolute inset-0 z-0 bg-black h-full w-full object-cover transition-opacity duration-500 ${
+          className={`absolute inset-0 z-0 h-full w-full bg-black object-cover transition-opacity duration-300 ${
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -59,7 +57,7 @@ const VideoAcademy = ({ id, noSupport, signin, text1, text2 }: VideoAcademyProps
           alt="CCC-academy"
           width={600}
           height={600}
-          className="w-[280px] sm:w-[420px] lg:w-[600px] h-auto"
+          className="h-auto w-[280px] sm:w-[420px] lg:w-[600px]"
         />
 
         <div className="mt-[30px] flex flex-col items-center justify-center text-center font-secondary text-4xl uppercase sm:text-5xl lg:text-6xl">

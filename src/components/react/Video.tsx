@@ -35,18 +35,16 @@ const Video = ({ id, noSupport, community, creative, culture, discover, message 
         }`}
         style={isPortrait ? { height: 'calc(100vh - 73px)' } : undefined}
       >
-        {!isVideoLoaded && <div className="absolute inset-0 z-0 bg-black" />}
-
         <video
           id={id}
           loop
           muted
           autoPlay
           playsInline
-          preload="auto"
-          onCanPlay={() => setIsVideoLoaded(true)}
+          preload="metadata"
+          onLoadedMetadata={() => setIsVideoLoaded(true)}
           onLoadedData={() => setIsVideoLoaded(true)}
-          className={`absolute inset-0 z-0 h-full w-full bg-black object-cover transition-opacity duration-500 ${
+          className={`absolute inset-0 z-0 h-full w-full bg-black object-cover transition-opacity duration-300 ${
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -65,7 +63,9 @@ const Video = ({ id, noSupport, community, creative, culture, discover, message 
 
       <div className="absolute bottom-[10px] left-1/2 z-10 -translate-x-1/2 transform lg:bottom-[40px]">
         <div className="flex flex-col items-center justify-center gap-2">
-          <div className="mb-2 w-[80vw] text-center text-sm text-orange-500 lg:w-[700px] lg:text-base">{message}</div>
+          <div className="mb-2 w-[80vw] text-center text-sm text-orange-500 lg:w-[700px] lg:text-base">
+            {message}
+          </div>
 
           {discover && <VideoAsset />}
 
