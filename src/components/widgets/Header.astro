@@ -8,6 +8,7 @@ import type { CallToAction } from '~/types';
 import i18next, { t } from 'i18next';
 import { NAV_LINKS_ACADEMY_MAP, NAV_LINKS_MAP } from '~/constants/commons';
 import LogoAsset from '../react/assets/LogoAsset';
+import { Image } from 'astro:assets';
 
 interface Link {
   text?: string;
@@ -61,7 +62,13 @@ const navLinks = Object.values(isAcademy ? NAV_LINKS_ACADEMY_MAP : NAV_LINKS_MAP
   >
     <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between ml-5']}>
       <a class="flex items-center logo-header" href={NAV_LINKS_MAP.HOME.href}>
-        <LogoAsset />
+        {
+          isAcademy ? (
+            <Image src={'/images/logoAca.png'} alt="3C Dance Academy" width="85" height="85" />
+          ) : (
+            <LogoAsset />
+          )
+        }
       </a>
       <div class="flex items-center lg:hidden">
         <ToggleMenu />
@@ -91,7 +98,7 @@ const navLinks = Object.values(isAcademy ? NAV_LINKS_ACADEMY_MAP : NAV_LINKS_MAP
         }
         <li class="mx-4 my-2 md:my-0">
           <a class="btn-header text-nowrap" href={isAcademy ? '/' : '/danceAcademy'}
-            >{isAcademy ? '3XC' : 'Dance academy'}</a
+            >{isAcademy ? '3XC' : '3C Dance Academy'}</a
           >
         </li>
         <li class="my-2 mx-4 block lg:hidden">
